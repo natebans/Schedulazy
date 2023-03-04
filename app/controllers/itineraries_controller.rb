@@ -2,8 +2,7 @@ class ItinerariesController < ApplicationController
   before_action :set_itinerary, only: [:show, :destroy]
 
   def index
-    @itineraries = Itinerary.all
-    authorize @itinerary
+    @itineraries = policy_scope(Itinerary)
   end
 
   def new
