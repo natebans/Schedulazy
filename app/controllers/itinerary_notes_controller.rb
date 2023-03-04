@@ -3,10 +3,13 @@ class ItineraryNotesController < ApplicationController
 
   def new
     @itinerary_note = ItineraryNote.new
+    authorize @itinerary_note
   end
 
   def create
     @itinerary_note = ItineraryNote.new(itinerary_note_params)
+    @itinerary_note.user = current_user
+    authorize @itinerary_note
 
     if @itinerary_note.save
       redirect_to @itinerary_path(@itinerary)
@@ -19,6 +22,7 @@ class ItineraryNotesController < ApplicationController
   end
 
   def update
+    authorize @itinerary_note
     if @itinerary_note.update(itinerary_note_params)
       redirect_to @itinerary_path(@itinerary)
     else
@@ -27,6 +31,7 @@ class ItineraryNotesController < ApplicationController
   end
 
   def destroy
+    authorize @itinerary_note
     @itinerary_note.destroy
     redirect_to root_path
   end
