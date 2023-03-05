@@ -16,7 +16,7 @@ class ItinerariesController < ApplicationController
     authorize @itinerary
 
     if @itinerary.save
-      redirect_to @itinerary_path(@itinerary)
+      redirect_to itinerary_path(@itinerary)
     else
       render :new, status: :unprocessable_entity
     end
@@ -39,6 +39,6 @@ class ItinerariesController < ApplicationController
   end
 
   def itinerary_params
-    params.require(:itinerary).permit(:name, :start_date, :end_date, :description)
+    params.require(:itinerary).permit(:name, :start_date, :end_date, :description, photos: [])
   end
 end
