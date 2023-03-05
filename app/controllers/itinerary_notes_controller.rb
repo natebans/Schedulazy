@@ -19,6 +19,7 @@ class ItineraryNotesController < ApplicationController
   end
 
   def edit
+    authorize @itinerary_note
   end
 
   def update
