@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :activities_notes
   has_many :feedback
   has_many :activities, through: :activities_notes
+  has_one_attached :photo
 end
