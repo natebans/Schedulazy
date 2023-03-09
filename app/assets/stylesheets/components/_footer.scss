@@ -3,10 +3,11 @@ footer{
   position: absolute;
   bottom: 0;
   width: 100%;
-  background: #3586ff;
+  background: #2C3639;
   height: 100px;
   min-height: 180px;
   padding: 20px 50px;
+  opacity: 1;
   // display: flex;
   // justify-content: center;
   // align-items: center;
@@ -71,7 +72,7 @@ footer .wave{
 }
 footer .wave#wave1{
   z-index: 1000;
-  opacity: 1;
+  // opacity: 1;
   bottom: 0;
   animation: animateWave 4s linear infinite;
 }
