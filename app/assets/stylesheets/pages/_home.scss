@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
-[data-aos-delay='10000'][data-aos].aos-animate,
-[data-aos][data-aos][data-aos-delay='10000'].aos-animate {
-  transition-delay: 11s;
+[data-aos-delay='11500'][data-aos].aos-animate,
+[data-aos][data-aos][data-aos-delay='11500'].aos-animate {
+  transition-delay: 11.5s;
 }
 
 .background {
@@ -15,7 +15,6 @@
 }
 
 .background h1 {
-
   font-size: 60px;
   letter-spacing: 2px;
   margin: auto;
@@ -29,21 +28,11 @@
   text-align: center;
 }
 
-.header-font {
-  font-family: $headers-font;
-  font-size: 20px;
+.centering-text p {
+  font-size: 18px;
 }
 
-// .fade-in-text {
-
-//   animation: fadeIn 2s;
-//   -webkit-animation: fadeIn 2s;
-//   -moz-animation: fadeIn 2s;
-//   -o-animation: fadeIn 2s;
-//   -ms-animation: fadeIn 2s;
-// }
-
-// @keyframes fadeIn {
-//   0% { opacity: 0; }
-//   100% { opacity: 1;}
-// }
+.header-font {
+  font-family: $headers-font;
+  font-size: 30px;
+}
