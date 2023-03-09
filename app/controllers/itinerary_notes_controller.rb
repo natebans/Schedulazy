@@ -12,7 +12,7 @@ class ItineraryNotesController < ApplicationController
     authorize @itinerary_note
 
     if @itinerary_note.save
-      redirect_to @itinerary_path(@itinerary)
+      redirect_to itinerary_path(@itinerary)
     else
       render 'new', status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class ItineraryNotesController < ApplicationController
   def update
     authorize @itinerary_note
     if @itinerary_note.update(itinerary_note_params)
-      redirect_to @itinerary_path(@itinerary)
+      redirect_to itinerary_path(@itinerary)
     else
       render 'update', status: :unprocessable_entity
     end
