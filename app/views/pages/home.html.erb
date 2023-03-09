@@ -1,7 +1,22 @@
-<%# <section class="vh-100 map-bg"> %>
 <div class="background">
   <div class="centering">
-    <h1>Schedulazy</h1>
+    <h1><span class="element"></span></h1>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+      var typed = new Typed('.element', {
+        strings: ["Best things to do...^500no...",
+          "Where to see.....^600 AH!",
+          "Schedulazy."],
+        typeSpeed: 100,
+        backspeed: 70,
+        onComplete: function(self) { self.cursor.remove() },
+        // onComplete: function() {
+        //   <br>
+        //   <p>Take the hassle out of trip planning</p>
+        // }
+      });
+    </script>
   </div>
 </div>
-<%# </section> %>
