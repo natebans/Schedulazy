@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update]
 
+  def index
+    authorize @user
+    @users = User.all
+  end
+
   def show
     authorize @user
   end
@@ -15,10 +20,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def home
-    @user = current_user
-  end
-
   private
 
   def set_user
@@ -26,6 +27,6 @@ class UsersController < ApplicationController
   end
 
   def itinerary_params
-    params.require(:user).permit(:email, :first_name, :last_name, :encrypted_password, :photo)
+    params.require(:user).permit(:email, :first_name, :last_name, :password, :photo)
   end
 end
