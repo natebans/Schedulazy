@@ -1,4 +1,9 @@
 // Specific CSS for your home-page
+[data-aos-delay='10000'][data-aos].aos-animate,
+[data-aos][data-aos][data-aos-delay='10000'].aos-animate {
+  transition-delay: 11s;
+}
+
 .background {
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1150&q=80');
   height: calc(100vh - 62.891px);
@@ -6,18 +11,39 @@
   background-size: cover;
   background-position: center;
   overflow: hidden;
+  color: $cream;
 }
 
 .background h1 {
-  color: $cream;
+
   font-size: 60px;
   letter-spacing: 2px;
   margin: auto;
 }
 
-.centering {
+.centering-text {
   height: calc(100vh - 62.891px);
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
+
+.header-font {
+  font-family: $headers-font;
+  font-size: 20px;
+}
+
+// .fade-in-text {
+
+//   animation: fadeIn 2s;
+//   -webkit-animation: fadeIn 2s;
+//   -moz-animation: fadeIn 2s;
+//   -o-animation: fadeIn 2s;
+//   -ms-animation: fadeIn 2s;
+// }
+
+// @keyframes fadeIn {
+//   0% { opacity: 0; }
+//   100% { opacity: 1;}
+// }
