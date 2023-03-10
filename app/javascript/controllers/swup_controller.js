@@ -5,5 +5,6 @@ import Swup from 'swup'
 export default class extends Controller {
   connect() {
     console.log("swup controller is connected")
+    const swup = new Swup()
   }
 }
