@@ -4,6 +4,7 @@ class ItineraryNotePolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
+  end
 
   def new?
     return create?
