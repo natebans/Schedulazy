@@ -1,34 +1,42 @@
-<p>Give us some info and we will give you a customized trip</p>
+<div class="background">
+  <div class="centering-text">
+    <div class="transition-fade" data-controller="swup" id="swup">
+      <p>Give us some info and we will give you a customized trip</p>
 
-<p>Destination</p>
-<div class="container">
-  <%= form_with url: root_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :name,
-      params[:name],
-      class: "form-control",
-      placeholder: "Where do you want to go"
-    %>
-    <%= submit_tag "Search", class: "btn btn-flat ms-2" %>
-    <%= link_to "Clear", root_path, class: "btn btn-flat ms-2" %>
-  <% end %>
-</div>
-
-<p>Duration</p>
-
-<p>Maximum budget</p>
-
-<p>What kind of activities do you want to do? Select all that apply</p>
-
-
-<p>Anywhere you've already been? Somewhere you want to skip entirely?</p>
-
-<%# Luis' search field used to test scraping %>
-
-        <%#= form_with url: test_search_path, method: :get, class: "d-flex" do %>
-          <%#= text_field_tag :search,
-            params[:search],
+      <p>Destination</p>
+      <div class="container">
+        <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :name,
+            params[:name],
             class: "form-control",
-            placeholder: "Search for a itinerary"%>
+            placeholder: "Where do you want to go"
+          %>
+          <%= submit_tag "Search", class: "btn btn-flat ms-2" %>
+          <%= link_to "Clear", root_path, class: "btn btn-flat ms-2" %>
+        <% end %>
+      </div>
 
-          <%#= submit_tag "Search", class: "btn btn-flat ms-2" %>
-        <%# end %>
+      <p>Duration</p>
+
+      <p>Maximum budget</p>
+
+      <p>What kind of activities do you want to do? Select all that apply</p>
+
+
+      <p>Anywhere you've already been? Somewhere you want to skip entirely?</p>
+      <p>
+        <%= link_to "back to home", root_path, class: "btn btn-primary" %>
+      </p>
+    </div>
+  </div>
+
+  <%#= form_with url: test_search_path, method: :get, class: "d-flex" do %>
+    <%#= text_field_tag :search,
+      params[:search],
+      class: "form-control",
+      placeholder: "Search for a itinerary"%>
+
+    <%#= submit_tag "Search", class: "btn btn-flat ms-2" %>
+  <%# end %>
+
+</div>
