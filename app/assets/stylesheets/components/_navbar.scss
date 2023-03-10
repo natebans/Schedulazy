@@ -11,14 +11,14 @@
   width: 40px;
 }
 
-.navbar-lewagon .dropdown a {
-  color: $dark-grey;
-}
-
 .navbar-lewagon a {
   color: $light-grey;
 }
 
 .nav-link:hover {
   color: $gold;
+}
+
+.dropdown-menu a {
+  color: $dark-grey;
 }
