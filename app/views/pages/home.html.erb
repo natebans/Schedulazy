@@ -1,10 +1,13 @@
 <div class="background">
-    <div class="centering-text">
+    <div class="centering-text" data-controller="swup">
       <div>
         <h1><span data-controller="typed-js"></span></h1>
 
         <div data-aos="fade-zoom-in" data-aos-delay="11500" data-aos-duration="2000">
           <p>Trip planning, the <span class="header-font">lazy</span> way</p>
+        </div>
+        <div>
+          <%= link_to "Get started", new_itinerary_path, class: "btn btn-primary" %>
         </div>
       </div>
     <div>
