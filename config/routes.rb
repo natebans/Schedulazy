@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   end
   resources :itinerary_notes, only: [:edit, :update, :destroy]
   resources :activity_notes, only: [:edit, :update, :destroy]
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show, :update, :index]
 end
