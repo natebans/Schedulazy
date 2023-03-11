@@ -6,7 +6,15 @@
         <div data-aos="fade-zoom-in" data-aos-delay="11500" data-aos-duration="2000">
           <p>Trip planning, the <span class="header-font">lazy</span> way</p>
         </div>
+
+        <%= form_with url: test_search_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :search,
+            params[:search],
+            class: "form-control",
+            placeholder: "Search for a itinerary"%>
+
+          <%= submit_tag "Search", class: "btn btn-flat ms-2" %>
+        <% end %>
       </div>
-    <div>
-  </div>
+    </div>
 </div>
