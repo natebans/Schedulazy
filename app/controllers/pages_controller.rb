@@ -1,5 +1,4 @@
 require "open-uri"
-require "nokogiri"
 
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home, :about ]
@@ -13,64 +12,32 @@ class PagesController < ApplicationController
 
   def test_search
     if params[:search].present?
-      # activity = params[:search]
-      # url = "https://www.headout.com/search/?q=#{activity}"
-
-      # browser = Watir::Browser.new :chrome, headless: true
-      # browser.goto url
-
-      # puts "======URL======="
-      # puts url
-      # puts "============="
-
-      # doc = Nokogiri::HTML.parse(browser.html)
-
-      # puts doc.search(".product-card-wrap").length
-
-      # browser.close
+      initial_text = "Travel memories you'll never forget"
 
       activity = params[:search]
-      url = "https://www.headout.com"
-
-      # browser = Watir::Browser.new :chrome, headless: true
-      browser = Watir::Browser.new
+      url = "https://www.getyourguide.com/"
+      browser = Watir::Browser.new :chrome, options: { prefs: { 'intl' => { 'accept_languages' => 'EN'}}}
       browser.goto url
+      browser.wait_until { browser.h1.text == initial_text }
+      browser.input(name: 'q').send_keys(activity, :return)
 
-      browser.wait_until { browser.h1.text == "The world's best experiences curated just for you" }
+      #puts "waiting..."
+      puts browser.h1.text
+      browser.wait_until { browser.h1.text != initial_text }
+      #puts "found..."
 
-
-      browser.input(id: 'universal-search-input').send_keys(activity, :return)
-
-      puts "======SEARCHING======="
-      browser.wait_until { browser.h2.text == "Showing results for #{activity}" }
-
-      puts "======WAITED======="
-      results = browser.div(class: 'search-grid-wrapper')
-
+      #puts "searching..."
+      results = browser.div(class: 'trip-item-activities')
+      #puts "results..."
       puts results.elements(css: 'a').length
-
-      results.elements(css: 'a').each do |element|
-        puts element.text.strip
+      #puts "list:"
+      results.elements(class: 'vertical-activity-card__container gtm-trigger__card-interaction').each do |element|
+        link = element.href.strip
+        element.elements(class: 'vertical-activity-card__title').each do |element|
+          puts element.text.strip
+          puts link
+        end
       end
-
-
-      puts "======URL======="
-      puts url
-      puts "============="
-
-      # doc = Nokogiri::HTML.parse(browser.html)
-
-      # puts doc.search(".product-card-wrap").length
-
-      # browser.close
-
-
-      # html_doc.search(".notranslate collection-name").each do |element|
-      #   puts element
-      #   puts element.text.strip
-      # end
     end
-
-    return 'ok'
   end
 end
