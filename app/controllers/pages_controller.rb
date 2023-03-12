@@ -21,20 +21,19 @@ class PagesController < ApplicationController
       browser.wait_until { browser.h1.text == initial_text }
       browser.input(name: 'q').send_keys(activity, :return)
 
-      #puts "waiting..."
+      puts "waiting..."
       puts browser.h1.text
       browser.wait_until { browser.h1.text != initial_text }
-      #puts "found..."
+      puts "found..."
 
-      #puts "searching..."
+      puts "searching..."
       results = browser.div(class: 'trip-item-activities')
-      #puts "results..."
-      puts results.elements(css: 'a').length
-      #puts "list:"
+
+      puts "list:"
       results.elements(class: 'vertical-activity-card__container gtm-trigger__card-interaction').each do |element|
         link = element.href.strip
-        element.elements(class: 'vertical-activity-card__title').each do |element|
-          puts element.text.strip
+        element.elements(class: 'vertical-activity-card__title').each do |el|
+          puts el.text.strip
           puts link
         end
       end
