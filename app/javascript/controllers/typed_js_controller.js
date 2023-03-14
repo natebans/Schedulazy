@@ -10,7 +10,7 @@ export default class extends Controller {
         "Activities for.....^600 AH!",
         "Schedulazy."],
       typeSpeed: 100,
-      backSpeed: 20,
+      fadeOut: true,
       onComplete: function(self) { self.cursor.remove() }
     }
 
