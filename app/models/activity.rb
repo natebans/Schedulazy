@@ -1,5 +1,5 @@
 class Activity < ApplicationRecord
-  belongs_to :itinerary
+  has_many :itinerary_activity_joins
   has_many :feedback
   has_many :activities_notes
   has_many_attached :photos
