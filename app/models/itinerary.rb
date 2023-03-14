@@ -11,5 +11,5 @@ class Itinerary < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :name, presence: true
-  validates :desciption, presence: true
+  validates :description, presence: true
 end
