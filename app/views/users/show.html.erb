@@ -7,10 +7,10 @@
       <%# include edit email link %>
       <p style="color: #563635;"><%= current_user.email %></p>
       <p>
-        <%= link_to "Edit/Delete your account", edit_user_registration_path %>
+        <%= button_to "Edit/Delete your account", edit_user_registration_path, class: "btn-delete btn btn-flat" %>
       </p>
       <p>
-        <%= link_to "Back to home", root_path %>
+        <%= button_to "Back to home", root_path, class: "btn btn-flat" %>
       </p>
     </div>
   </div>
