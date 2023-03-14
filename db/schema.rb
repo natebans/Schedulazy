@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_083832) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_14_202753) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -87,6 +87,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_083832) do
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
 
+  create_table "itinerary_activity_joins", force: :cascade do |t|
+    t.bigint "itinerary_id"
+    t.bigint "activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_itinerary_activity_joins_on_activity_id"
+    t.index ["itinerary_id"], name: "index_itinerary_activity_joins_on_itinerary_id"
+  end
+
   create_table "itinerary_notes", force: :cascade do |t|
     t.string "description"
     t.bigint "user_id", null: false
@@ -119,6 +128,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_083832) do
   add_foreign_key "feedbacks", "activities"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "itineraries", "users"
+  add_foreign_key "itinerary_activity_joins", "activities"
+  add_foreign_key "itinerary_activity_joins", "itineraries"
   add_foreign_key "itinerary_notes", "itineraries"
   add_foreign_key "itinerary_notes", "users"
 end

@@ -1,0 +1,2 @@
+class ItineraryActivityJoin < ApplicationRecord
+end
