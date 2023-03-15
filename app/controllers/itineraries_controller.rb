@@ -10,12 +10,15 @@ class ItinerariesController < ApplicationController
     authorize @itinerary
   end
 
+  # to be fixed so it can use strong params!!!
   def create
-    @itinerary = Itinerary.new(itinerary_params)
+    # @itinerary = Itinerary.new(itinerary_params)
+    @itinerary = Itinerary.new(name: params[:name])
     @itinerary.user = current_user
     authorize @itinerary
-
+    @activity = Activity.where(categories: params[:category]).sample
     if @itinerary.save
+      ItineraryActivityJoin.create!(itinerary: @itinerary, activity: @activity)
       redirect_to itinerary_path(@itinerary)
     else
       render :new, status: :unprocessable_entity
