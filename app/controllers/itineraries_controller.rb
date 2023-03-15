@@ -16,7 +16,6 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new(name: params[:name])
     @itinerary.user = current_user
     authorize @itinerary
-    raise
     @activity = Activity.where(category: params[:category]).sample
     if @itinerary.save
       ItineraryActivityJoin.create!(itinerary: @itinerary, activity: @activity)
