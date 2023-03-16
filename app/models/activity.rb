@@ -4,7 +4,7 @@ class Activity < ApplicationRecord
   has_many :activities_notes
   has_many_attached :photos
   validates :address, presence: true
-  validates :categories, presence: true
+  validates :category, presence: true
   validates :price, presence: true
-  validates :duration, presence: true
+  validates :location, presence: true
 end
