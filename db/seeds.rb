@@ -8,113 +8,102 @@
 puts 'Cleaning  database...'
 User.destroy_all
 Itinerary.destroy_all
+Activity.destroy_all
 
-puts "creating new seeds"
+# ------------------Users------------------
 
-  # ------------------Users------------------
+puts "creating users"
 
+User.create!(
+  first_name: "Alex",
+  last_name: Faker::Name.last_name,
+  email: "alex@gmail.com",
+  password: 12341234
+)
+User.create!(
+  first_name: "Nate",
+  last_name: Faker::Name.last_name,
+  email: "nate@gmail.com",
+  password: 12341234
+)
+User.create!(
+  first_name: "Maria",
+  last_name: Faker::Name.last_name,
+  email: "maria@gmail.com",
+  password: 12341234
+)
+User.create!(
+  first_name: "Luis",
+  last_name: Faker::Name.last_name,
+  email: "luis@gmail.com",
+  password: 12341234
+)
 
-  user1 = User.create!(
-    first_name: "Alex",
-    last_name: Faker::Name.last_name,
-    email: "alex@gmail.com",
-    password: 12341234
-  )
-  user2 = User.create!(
-    first_name: "Nate",
-    last_name: "Banas",
-    email: "nate@gmail.com",
-    password: 12341234
-  )
-  user3 = User.create!(
-    first_name: "Maria",
-    last_name: "Micioni",
-    email: "maria@gmail.com",
-    password: 12341234
-  )
-  user4 = User.create!(
-    first_name: "Luis",
-    last_name: "Fare e Oliveira Claro",
-    email: "luis@gmail.com",
-    password: 12341234
-  )
-
-
-
-
+puts "Users created!"
 
 # ------------------Itineraries------------------
 
+puts "Creating sample itineraries"
 
+Itinerary.create!(
+  name: "Athens Itinerary",
+  start_date: Faker::Date.forward(days: 23),
+  end_date: Faker::Date.forward(days: 23),
+  description: ["luxury holidays", "amazing experience", "unforgetable weekend", "remarkable trip"].sample,
+  user_id: 1
+)
 
+Itinerary.create!(
+  name: "Moscow Itinerary",
+  start_date: Faker::Date.forward(days: 23),
+  end_date: Faker::Date.forward(days: 23),
+  description: ["luxury holidays", "amazing experience", "unforgetable weekend", "remarkable trip"].sample,
+  user_id: 2
+)
+Itinerary.create!(
+  name: "Monson Itinerary",
+  start_date: Faker::Date.forward(days: 23),
+  end_date: Faker::Date.forward(days: 23),
+  description: ["luxury holidays", "amazing experience", "unforgetable weekend", "remarkable trip"].sample,
+  user_id: 3
+)
+Itinerary.create!(
+  name: "Lisboa Itinerary",
+  start_date: Faker::Date.forward(days: 23),
+  end_date: Faker::Date.forward(days: 23),
+  description: ["luxury holidays", "amazing experience", "unforgetable weekend", "remarkable trip"].sample,
+  user_id: 4
+)
 
-  itinerary1 = Itinerary.create!(
-    name: "Athens",
-    start_date: Faker::Date.forward(days: 23),
-    end_date: Faker::Date.forward(days: 23),
-    description: ["luxury holidays", "amazing experience", "unforgetable weekend", "remarkable trip"].sample,
-    user_id: 1
-  )
-
-  itinerary2 = Itinerary.create!(
-    name: "Moscow",
-    start_date: Faker::Date.forward(days: 23),
-    end_date: Faker::Date.forward(days: 23),
-    description: ["luxury holidays", "amazing experience", "unforgetable weekend", "remarkable trip"].sample,
-    user_id: 2
-  )
-  itinerary3 = Itinerary.create!(
-    name: "Monson, Massachusetts",
-    start_date: Faker::Date.forward(days: 23),
-    end_date: Faker::Date.forward(days: 23),
-    description: ["luxury holidays", "amazing experience", "unforgetable weekend", "remarkable trip"].sample,
-    user_id: 3
-  )
-  itinerary4 = Itinerary.create!(
-    name: "Lisboa",
-    start_date: Faker::Date.forward(days: 23),
-    end_date: Faker::Date.forward(days: 23),
-    description: ["luxury holidays", "amazing experience", "unforgetable weekend", "remarkable trip"].sample,
-    user_id: 4
-  )
-
+puts "Sample itineraries created!"
 
 # ------------------Activities------------------
 
+puts "Creating sample activities"
 
-
-  activity1 = Activity.create!(
+20.times do
+  Activity.create!(
     address: Faker::Address.street_name,
-    categories: ["museums", "shopping", "restaurants", "churches", "bike tour"].sample,
-    price: ["10", "20", "30", "45"].sample,
-    duration: [30, 60, 90].sample,
-    itinerary_id: [1, 2, 3, 4].sample
-  )
-
-  activity2 = Activity.create!(
-    address: Faker::Address.street_name,
-    categories: ["museums", "shopping","restaurants", "churches", "visit beaches"].sample,
-    price: ["10", "20", "30", "45"].sample,
-    duration: [30, 60, 90].sample,
-    itinerary_id: [1, 2, 3, 4].sample
-  )
-
-  activity3 = Activity.create!(
-    address: Faker::Address.street_name,
-    categories: ["museums","shopping", "restaurants", "churches", "visit local pubs"].sample,
-    price: ["10", "20", "30", "45"].sample,
-    duration: [30, 60, 90].sample,
-    itinerary_id: [1, 2, 3, 4].sample
-  )
-
-  activity4 = Activity.create!(
-    address: Faker::Address.street_name,
-    categories: ["museums", "shopping", "restaurants", "churches", "visit local markets"].sample,
+    category: ["museum", "shopping", "tour", "church", "local market"].sample,
     price: ["10", "20", "30", "45"].sample,
     duration: [30, 60, 90, 120].sample,
-    itinerary_id: [1, 2, 3, 4].sample
+    location: ["Athens", "Moscow", "Monson", "Lisboa"].sample
   )
+end
 
+puts 'Sample activities created!'
 
+# ------------------Itinerary_activity_joins------------------
 
-puts 'Finished seeding users!'
+puts "creating join instances"
+
+id = 1
+20.times do
+  ItineraryActivityJoin.create!(
+    itinerary_id: rand(1..4),
+    activity_id: id
+  )
+  id += 1
+end
+
+puts "join instances created!"
