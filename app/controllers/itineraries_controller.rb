@@ -16,8 +16,6 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new(name: params[:name])
     @itinerary.user = current_user
     authorize @itinerary
-    # @activity = Activity.where(category: params[:category], location: params[:name]).sample
-    # @activity = Activity.where("category = ? AND location = ?", params[:category], params[:name]).sample
     if !params[:name].empty? && !params[:category].nil?
       @activities = Activity.where(location: params[:name]).where(category: params[:category])
     elsif !params[:name].empty? && params[:category].nil?
@@ -25,7 +23,6 @@ class ItinerariesController < ApplicationController
     elsif !params[:category].nil? && params[:name].empty?
       @activities = Activity.where(category: params[:category])
     end
-
     if @itinerary.save!
       @activities.each { |activity| ItineraryActivityJoin.create!(itinerary: @itinerary, activity: activity) }
       # ItineraryActivityJoin.create!(itinerary: @itinerary, activity: @activity)
