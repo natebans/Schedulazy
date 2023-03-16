@@ -1,0 +1,29 @@
+.btn-flat {
+  text-decoration: none;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #CC9A02;
+  transition: background 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.btn-flat:hover {
+  background: white;
+  color: #CC9A02;
+  border: 2px solid #CC9A02;
+}
+
+.btn-delete {
+  background: #CC6666;
+
+  // &:hover {
+  //   color: red;
+  //   border: 2px solid red;
+  // }
+}
+
+.btn-delete:hover {
+  color: red;
+  border: 2px solid red;
+}
