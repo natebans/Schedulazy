@@ -1,39 +1,41 @@
 <div class="background">
   <div class="centering-text">
     <div class="transition-fade" data-controller="swup" id="swup">
-      <p>Give us some info and we will give you a customized trip</p>
-
-      <p>Destination</p>
-      <div class="container">
-        <%= form_with url: itineraries_path, method: :post, class: "d-flex" do |f| %>
-          <%= f.text_field :name,
-            class: "form-control",
-            placeholder: "Where do you want to go"
-          %>
-          <%= f.collection_check_boxes :category,
-            ["museums", "shopping", "restaurants", "churches", "bike tour"],
-            :to_s,
-            :to_s,
-            include_hidden: false
-          %>
-          <%= submit_tag "Search", class: "btn btn-flat ms-2" %>
-          <%= link_to "Clear", root_path, class: "btn btn-flat ms-2" %>
+      <h2>Give us some info and we will give you a customized trip</h2>
+      <div class="container mt-3">
+        <h5>Destination</h5>
+        <%= form_with url: itineraries_path, method: :post, class: "d-flex flex-column" do |f| %>
+          <div class="mb-5">
+            <%= f.text_field :name,
+              class: "form-control",
+              placeholder: "Where do you want to go?"
+            %>
+          </div>
+          <h5>What kind of activities do you want to do? Select all that apply</h5>
+          <div class="d-flex flex-wrap justify-content-center">
+            <%= f.collection_check_boxes :category,
+              ["museums", "shopping", "restaurants", "churches", "bike tour"],
+              :to_s,
+              :to_s,
+              include_hidden: false do |b| %>
+              <div class="custom-checkbox me-3">
+                <%= b.check_box %>
+                <%= b.label %>
+              </div>
+             <% end %>
+           </div>
+          <div class="container mt-5">
+            <%= submit_tag "Search", class: "btn btn-flat ms-2" %>
+            <%= link_to "Clear", root_path, class: "btn btn-flat ms-2" %>
+          </div>
         <% end %>
       </div>
-
-      <p>Duration</p>
-
-      <p>Maximum budget</p>
-
-      <p>What kind of activities do you want to do? Select all that apply</p>
-
-
-      <p>Anywhere you've already been? Somewhere you want to skip entirely?</p>
-
-      <%#= link_to "My Dashboard", itineraries_path, class: "btn btn-primary" %>
-
     </div>
   </div>
+</div>
+
+
+      <%#= link_to "My Dashboard", itineraries_path, class: "btn btn-primary" %>
 
   <%#= form_with url: test_search_path, method: :get, class: "d-flex" do %>
     <%#= text_field_tag :search,
@@ -43,5 +45,3 @@
 
     <%#= submit_tag "Search", class: "btn btn-flat ms-2" %>
   <%# end %>
-
-</div>
