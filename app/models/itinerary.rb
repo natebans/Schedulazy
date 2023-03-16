@@ -9,7 +9,7 @@ class Itinerary < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
-  validates :start_date, presence: true
-  validates :end_date, presence: true
+  # validates :start_date, presence: true
+  # validates :end_date, presence: true
   validates :name, presence: true
 end
