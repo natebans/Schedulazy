@@ -16,7 +16,7 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new(name: params[:name])
     @itinerary.user = current_user
     authorize @itinerary
-    @activity = Activity.where(categories: params[:category]).sample
+    @activity = Activity.where(category: params[:category]).sample
     if @itinerary.save
       ItineraryActivityJoin.create!(itinerary: @itinerary, activity: @activity)
       redirect_to itinerary_path(@itinerary)
