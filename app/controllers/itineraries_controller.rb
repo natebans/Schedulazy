@@ -16,9 +16,16 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new(name: params[:name])
     @itinerary.user = current_user
     authorize @itinerary
-    @activity = Activity.where(category: params[:category]).sample
-    if @itinerary.save
-      ItineraryActivityJoin.create!(itinerary: @itinerary, activity: @activity)
+    if !params[:name].empty? && !params[:category].nil?
+      @activities = Activity.where(location: params[:name]).where(category: params[:category])
+    elsif !params[:name].empty? && params[:category].nil?
+      @activities = Activity.where(location: params[:name])
+    elsif !params[:category].nil? && params[:name].empty?
+      @activities = Activity.where(category: params[:category])
+    end
+    if @itinerary.save!
+      @activities.each { |activity| ItineraryActivityJoin.create!(itinerary: @itinerary, activity: activity) }
+      # ItineraryActivityJoin.create!(itinerary: @itinerary, activity: @activity)
       redirect_to itinerary_path(@itinerary)
     else
       render :new, status: :unprocessable_entity
