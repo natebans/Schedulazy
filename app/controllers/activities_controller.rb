@@ -1,6 +1,10 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :destroy]
 
+  # def index
+  #   @activities = Activities.all
+  # end
+
   def show
     authorize @activity
   end
