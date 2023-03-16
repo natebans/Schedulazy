@@ -5,7 +5,7 @@
 
 
 <div class="container pt-5">
-      <% @itineraries.each do |itinerary|  %>
-          <%= render "itinerary_card", itinerary: itinerary %>
-      <% end  %>
+  <% current_user.itineraries.each do |itinerary|  %>
+      <%= render "itinerary_card", itinerary: itinerary %>
+  <% end  %>
 </div>
