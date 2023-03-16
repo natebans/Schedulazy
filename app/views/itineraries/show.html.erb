@@ -1,2 +1,31 @@
-<h1>Itineraries#show</h1>
-<p>Find me in app/views/itineraries/show.html.erb</p>
+
+
+<div class="itinerary">
+
+    <div class="banner" style="background-image:  url(<%= asset_path 'athens.avif' %>)">
+      <div class="container">
+        <h1>Enjoy amazing holidays in Boston</h1>
+        <p>A new amazing adventure is waiting for you</p>
+        <a class="btn btn-flat" href="#">Apply now</a>
+      </div>
+    </div>
+
+
+
+    <div class="activities">
+      <% @itinerary.activities.each do |activity| %>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h1> Address:  <%= activity.address %> </h1>
+            <h1> Category:  <%= activity.categories %> </h1>
+            <h1> Price:  <%= activity.price %> € </h1>
+            <h1> Duration:  <%= activity.duration %> min </h1>
+          </div>
+        </div>
+    <% end %>
+    </div>
+
+
+
+
+</div>

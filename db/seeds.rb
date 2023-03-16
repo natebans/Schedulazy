@@ -77,12 +77,15 @@ Itinerary.create!(
 
 puts "Sample itineraries created!"
 
+
 # ------------------Activities------------------
 
 puts "Creating sample activities"
 
+
 20.times do
   Activity.create!(
+
     address: Faker::Address.street_name,
     category: ["museum", "shopping", "tour", "church", "local market"].sample,
     price: ["10", "20", "30", "45"].sample,
@@ -91,9 +94,11 @@ puts "Creating sample activities"
   )
 end
 
+
 puts 'Sample activities created!'
 
 # ------------------Itinerary_activity_joins------------------
+
 
 puts "creating join instances"
 
