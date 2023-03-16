@@ -13,13 +13,15 @@
 
 
     <div class="activities">
-      <% @itinerary.activities.each do |activity| %>
+      <% @itinerary.itinerary_activity_joins.each do |join| %>
         <div class="card" style="width: 18rem;">
           <div class="card-body">
-            <h1> Address:  <%= activity.address %> </h1>
-            <h1> Category:  <%= activity.category %> </h1>
-            <h1> Price:  <%= activity.price %> € </h1>
-            <h1> Duration:  <%= activity.duration %> min </h1>
+            <h1> Address:  <%= join.activity.address %> </h1>
+            <h1> Category:  <%= join.activity.category %> </h1>
+            <h1> Price:  <%= join.activity.price %> € </h1>
+            <h1> Duration:  <%= join.activity.duration %> min </h1>
+          <%= link_to "Delete", itinerary_activity_join_path(join),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>
         </div>
     <% end %>

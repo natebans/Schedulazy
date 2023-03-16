@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :activities, only: [:index, :new, :create]
     resources :itinerary_notes, only: [:new, :create]
   end
-  resources :activities, only: [:index, :show, :destroy] do
+  resources :itinerary_activity_joins, only: [:index, :show, :destroy] do
     resources :activity_notes, only: [:new, :create]
   end
   resources :itinerary_notes, only: [:edit, :update, :destroy]

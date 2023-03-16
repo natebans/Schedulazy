@@ -11,6 +11,7 @@ class ActivitiesController < ApplicationController
 
   def destroy
     authorize @activity
+    user = @activity.user
     @activity.destroy
     redirect_to root_path
   end
