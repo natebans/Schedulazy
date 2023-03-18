@@ -22,9 +22,11 @@
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
+  </body>
+
+
     <% if action_name == "index" || action_name == "show" || action_name == "about" %>
       <%= render "shared/footer" %>
     <% end %>
 
-  </body>
 </html>
