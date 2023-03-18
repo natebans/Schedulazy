@@ -17,9 +17,9 @@ class ItinerariesController < ApplicationController
     @itinerary.user = current_user
     authorize @itinerary
     if !params[:name].empty? && !params[:category].nil?
-      @activities = Activity.where(location: params[:name]).where(category: params[:category])
+      @activities = Activity.where("location ILIKE ?", "%#{params[:name]}%").where(category: params[:category])
     elsif !params[:name].empty? && params[:category].nil?
-      @activities = Activity.where(location: params[:name])
+      @activities = Activity.where("location ILIKE ?", "%#{params[:name]}%")
     elsif !params[:category].nil? && params[:name].empty?
       @activities = Activity.where(category: params[:category])
     end
