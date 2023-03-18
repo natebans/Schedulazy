@@ -1,16 +1,14 @@
 footer{
+  margin-top: 200px;
   box-sizing: border-box;
   position: absolute;
-  bottom: 0;
+  bottom: 10;
   width: 100%;
   background: #2C3639;
   height: 100px;
   min-height: 180px;
   padding: 20px 50px;
   opacity: 1;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
 }
 footer .footer-links{
   position: relative;

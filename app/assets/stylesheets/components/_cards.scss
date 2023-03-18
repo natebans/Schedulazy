@@ -10,6 +10,12 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-bottom-right-radius: 25px ;
   position: relative;
+  transition: transform .2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .card:before,.card:after{
@@ -28,6 +34,8 @@
 .card-body h5{
   font-size: 30px;
 }
+
+
 
 .link{
   color: black;
