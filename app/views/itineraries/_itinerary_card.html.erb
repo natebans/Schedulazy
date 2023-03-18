@@ -2,11 +2,18 @@
 
 <%= link_to  itinerary_path(itinerary), class:"link" do %>
     <div class="card mb-4">
-      <div class="card-body">
-        <h5> <%= itinerary.name %> </h5>
-        <p> <strong> Description: </strong> <%= itinerary.description %> </p>
-        <p> <strong> Start Date: </strong>  <%= itinerary.start_date %> </p>
-        <p> <strong> End Date: </strong>   <%= itinerary.end_date %> </p>
+      <div class="card-body d-flex justify-content-between">
+        <div>
+          <h5> <%= itinerary.name %> </h5>
+          <p> <strong> Description: </strong> <%= itinerary.description %> </p>
+          <p> <strong> Start Date: </strong>  <%= itinerary.start_date %> </p>
+          <p> <strong> End Date: </strong>   <%= itinerary.end_date %> </p>
+        </div>
+        <div>
+          <%= link_to "Delete", itinerary_path(itinerary), class: "btn btn-delete",
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
+        </div>
       </div>
     </div>
 <% end %>
