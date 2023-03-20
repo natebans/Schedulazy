@@ -8,7 +8,7 @@ export default class extends Controller {
     const typed = {
       strings: ["Going Somewhere?",
         "Schedulazy."],
-      typeSpeed: 50,
+      typeSpeed: 40,
       fadeOut: true,
       onComplete: function(self) { self.cursor.remove() }
     }
