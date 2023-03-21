@@ -16,7 +16,7 @@
 
       <% @itinerary.itinerary_activity_joins.each do |join| %>
         <div class="card" style="width: 18rem;">
-        <%= image_tag("market.jpeg") %>
+        <%= image_tag "market.jpeg" %>
           <div class="card-body">
             <h1> <%= join.activity.category %> </h1>
             <h1> Address:  <%= join.activity.address %> </h1>
