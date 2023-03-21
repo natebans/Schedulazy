@@ -8,6 +8,8 @@ class ItinerariesController < ApplicationController
   def new
     @itinerary = Itinerary.new
     authorize @itinerary
+    @no_records = session[:no_records]
+    session[:no_records] = nil
   end
 
   # to be fixed so it can use strong params!!!
@@ -22,6 +24,10 @@ class ItinerariesController < ApplicationController
       @activities = Activity.where("location ILIKE ?", "%#{params[:name]}%")
     elsif !params[:category].nil? && params[:name].empty?
       @activities = Activity.where(category: params[:category])
+    end
+    if @activities.empty?
+      session[:no_records] = "Destination not available. Please input a different destination."
+      return redirect_to new_itinerary_path
     end
     if @itinerary.save!
       @activities.each { |activity| ItineraryActivityJoin.create!(itinerary: @itinerary, activity: activity) }

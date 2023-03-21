@@ -1,5 +1,8 @@
 <div class="background">
   <div class="centering-text">
+    <% if @no_records %>
+      <%= @no_records %>
+    <% end %>
     <div class="transition-fade" data-controller="swup" id="swup">
       <h2>Give us some info and we will give you a customized trip</h2>
       <div class="container mt-3">
