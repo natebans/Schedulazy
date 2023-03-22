@@ -1,10 +1,10 @@
 // Import Google fonts
 // @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Quicksand:wght@400;700&family=Varela+Round&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300&family=Rubik:wght@300;400;500&display=swap');
 // Define fonts for body and headers
-$body-font: "Quicksand", "Helvetica", "sans-serif";
-$headers-font: "Permanent Marker", "Helvetica", "cursive";
+$body-font: "Poppins", "Helvetica", "sans-serif";
+$headers-font: "Rubik", "Helvetica", "sans-serif";
+$special-font: "Permanent marker", "Helvetica", "cursive",
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
