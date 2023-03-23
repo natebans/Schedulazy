@@ -78,11 +78,12 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
-  gem "selenium-webdriver"
-  gem "webdrivers"
 end
 
+gem "selenium-webdriver"
+gem "webdrivers"
 gem "cloudinary"
 gem "nokogiri"
 gem 'open-uri', '~> 0.3.0'
 gem "geocoder"
+gem 'chromedriver-helper', '~> 1.0'
