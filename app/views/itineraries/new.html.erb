@@ -1,3 +1,7 @@
+<script>
+console.log("estou na pagina new.html.erb")
+</script>
+
 <div class="background">
   <div class="centering-text">
     <% if @no_records %>
@@ -27,6 +31,7 @@
               </div>
              <% end %>
            </div>
+
           <div class="container mt-5">
             <%= submit_tag "Search", class: "btn btn-flat ms-2" %>
           </div>
@@ -35,15 +40,3 @@
     </div>
   </div>
 </div>
-
-
-      <%#= link_to "My Dashboard", itineraries_path, class: "btn btn-primary" %>
-
-  <%#= form_with url: test_search_path, method: :get, class: "d-flex" do %>
-    <%#= text_field_tag :search,
-      params[:search],
-      class: "form-control",
-      placeholder: "Search for a itinerary"%>
-
-    <%#= submit_tag "Search", class: "btn btn-flat ms-2" %>
-  <%# end %>

@@ -1,38 +1,22 @@
-
-
 <div class="itinerary">
-
-    <div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'athens.avif' %>)">
-      <div class="container">
-        <h1>Enjoy amazing holidays in Boston</h1>
-        <p>A new amazing adventure is waiting for you</p>
+  <div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0,0,0,0.4)), url(<%= @itinerary.itinerary_activity_joins.last.activity.banner %>)">
+    <div class="container">
+        <p><%= @itinerary.itinerary_activity_joins.last.activity.address %></p>
         <a class="btn btn-flat" href="#">Apply now</a>
+    </div>
+    </div>
+<div class="activities">
+  <% @itinerary.itinerary_activity_joins.each do |join| %>
+    <div class="card" style="width: 18rem;">
+      <%= image_tag join.activity.photo %>
+      <div class="card-body">
+        <h1> <%= join.activity.category %> </h1>
+        <h1> <%= join.activity.Title %> </h1>
+        <h1> Link  <%= join.activity.link %> min </h1>
+        <h1> From <%= join.activity.price.to_i %> per person </h1>
+        <%= link_to "Delete", itinerary_activity_join_path(join), class: "btn btn-outline-danger",
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       </div>
     </div>
-
-
-
-    <div class="activities">
-
-      <% @itinerary.itinerary_activity_joins.each do |join| %>
-        <div class="card" style="width: 18rem;">
-        <%= image_tag "market.jpeg" %>
-          <div class="card-body">
-            <h1> <%= join.activity.category %> </h1>
-            <p> Address:  <%= join.activity.address %> </p>
-            <p> Duration:  <%= join.activity.duration %> min </p>
-            <p> From €<%= join.activity.price %> per person </p>
-          <%= link_to "Delete", itinerary_activity_join_path(join), class: "btn btn-outline-danger",
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-          </div>
-        </div>
-    <% end %>
     </div>
-
-
-
-
-
-
-
 </div>
