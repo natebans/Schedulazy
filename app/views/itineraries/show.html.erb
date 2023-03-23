@@ -7,24 +7,47 @@
     </div>
 <div class="activities">
   <% @itinerary.itinerary_activity_joins.each do |join| %>
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#exampleModal<%= join.id %>">
       <%= image_tag join.activity.photo %>
       <div class="card-body">
-        <h1> <%= join.activity.category %> </h1>
-        <h1> <%= join.activity.Title %> </h1>
-        <h1> Link  <%= join.activity.link %> min </h1>
-        <h1> From <%= join.activity.price.to_i %> per person </h1>
+        <p style="text-decoration: underline"><strong><%= join.activity.category %></strong></p>
+        <p> <%= join.activity.Title %> </p>
+        <p> From <%= join.activity.price.to_i %>€ per person </p>
         <%= link_to "Delete", itinerary_activity_join_path(join), class: "btn btn-outline-danger",
         data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       </div>
     </div>
-    
+    <div class="modal fade" id="exampleModal<%= join.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><strong><%= join.activity.Title %></strong></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="picture">
+              <%= image_tag "market.jpeg" %>
+            </div>
+            <p style="text-decoration: underline"><%= join.activity.category %></p>
+            <p><strong>Address:</strong> <%= join.activity.address %> </p>
+            <p><strong>Duration:</strong> <%= join.activity.duration %> minutes </p>
+            <p><strong>From</strong> €<%= join.activity.price.to_i %> per person </p>
+            <p> Link: <%= join.activity.link %> </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-flat" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
     <div class="activities">
       <% @itinerary.itinerary_activity_joins.each do |join| %>
         <div class="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#exampleModal<%= join.id %>">
-          <%= image_tag "market.jpeg" %>
+          <%#= image_tag join.activity.photo %>
           <div class="card-body">
-activity-modal            <h1 style="text-decoration: underline"> <%= join.activity.category %> </h1>
+            <h1 style="text-decoration: underline"> <%= join.activity.category %> </h1>
             <p> <strong>Duration:</strong> <%= join.activity.duration %> minutes </p>
             <%= link_to "Delete", itinerary_activity_join_path(join), class: "btn btn-outline-danger",
               data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
