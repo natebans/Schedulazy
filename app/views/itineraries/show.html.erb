@@ -18,13 +18,14 @@
         data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       </div>
     </div>
-    
+  <% end %>
+
     <div class="activities">
       <% @itinerary.itinerary_activity_joins.each do |join| %>
         <div class="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#exampleModal<%= join.id %>">
-          <%= image_tag "market.jpeg" %>
+          <%= image_tag join.activity.photo %>
           <div class="card-body">
-activity-modal            <h1 style="text-decoration: underline"> <%= join.activity.category %> </h1>
+            <h1 style="text-decoration: underline"> <%= join.activity.category %> </h1>
             <p> <strong>Duration:</strong> <%= join.activity.duration %> minutes </p>
             <%= link_to "Delete", itinerary_activity_join_path(join), class: "btn btn-outline-danger",
               data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
