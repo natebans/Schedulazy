@@ -6,10 +6,9 @@ export default class extends Controller {
   connect() {
     console.log("types.js controller is connected")
     const typed = {
-      strings: ["Best things to do...^500no...",
-        "Activities for.....^600 AH!",
+      strings: ["Going Somewhere?",
         "Schedulazy."],
-      typeSpeed: 100,
+      typeSpeed: 40,
       fadeOut: true,
       onComplete: function(self) { self.cursor.remove() }
     }

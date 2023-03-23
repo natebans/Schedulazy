@@ -1,12 +1,15 @@
 // Specific CSS for your home-page
-[data-aos-delay='11500'][data-aos].aos-animate,
-[data-aos][data-aos][data-aos-delay='11500'].aos-animate {
-  transition-delay: 11.5s;
-}
+
+// to adjust aos timing by more than 3000ms
+// [data-aos-delay='3000'][data-aos].aos-animate,
+// [data-aos][data-aos][data-aos-delay='3000'].aos-animate {
+//   transition-delay: 3s;
+// }
 
 .background {
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1150&q=80');
-  height: calc(100vh - 62.891px);
+  // height: calc(100vh - 62.891px);
+  height: 100vh;
   background-repeat: none;
   background-size: cover;
   background-position: center;
@@ -15,13 +18,15 @@
 }
 
 .background h1 {
+  font-family: $special-font;
   font-size: 60px;
   letter-spacing: 2px;
   margin: auto;
 }
 
 .centering-text {
-  height: calc(100vh - 62.891px);
+  // height: calc(100vh - 62.891px);
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +37,7 @@
   font-size: 18px;
 }
 
-.header-font {
-  font-family: $headers-font;
+.special-font {
+  font-family: $special-font;
   font-size: 30px;
 }

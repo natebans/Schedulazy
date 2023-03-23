@@ -1,7 +1,7 @@
 class Itinerary < ApplicationRecord
   include PgSearch::Model
   belongs_to :user
-  has_many :itinerary_activity_joins
+  has_many :itinerary_activity_joins, dependent: :destroy
   has_many :activities, through: :itinerary_activity_joins
   has_many :itinerary_notes
   has_many_attached :photos

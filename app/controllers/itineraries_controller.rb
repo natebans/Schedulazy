@@ -8,6 +8,8 @@ class ItinerariesController < ApplicationController
   def new
     @itinerary = Itinerary.new
     authorize @itinerary
+    @no_records = session[:no_records]
+    session[:no_records] = nil
   end
 
 
@@ -79,8 +81,6 @@ class ItinerariesController < ApplicationController
     authorize @itinerary
 
     @user = current_user
-
-
     if @itinerary.save!
       itinerary_activities = activity_instances.first(3)
 

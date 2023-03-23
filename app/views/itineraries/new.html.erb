@@ -4,6 +4,9 @@ console.log("estou na pagina new.html.erb")
 
 <div class="background">
   <div class="centering-text">
+    <% if @no_records %>
+      <%= @no_records %>
+    <% end %>
     <div class="transition-fade" data-controller="swup" id="swup">
       <h2>Give us some info and we will give you a customized trip</h2>
       <div class="container mt-3">
@@ -31,7 +34,6 @@ console.log("estou na pagina new.html.erb")
 
           <div class="container mt-5">
             <%= submit_tag "Search", class: "btn btn-flat ms-2" %>
-            <%= link_to "Clear", root_path, class: "btn btn-flat ms-2" %>
           </div>
         <% end %>
       </div>

@@ -1,14 +1,16 @@
 <div class="title">
   <h1>MY TRAVEL ITINERARIES</h1>
-  <i class="fa-solid fa-plane fa-5x"></i>
+  <i class="fa-solid fa-plane fa-3x fa-rotate-270"></i>
 
 </div>
+
+
 
 <div class="container pt-5">
   <div class="mb-3">
   <%= link_to "Create a new itinerary", new_itinerary_path, class: "btn btn-flat"%>
   </div>
-  <% current_user.itineraries.each do |itinerary|  %>
+    <% current_user.itineraries.each do |itinerary|  %>
       <%= render "itinerary_card", itinerary: itinerary %>
-  <% end  %>
+    <% end  %>
 </div>
