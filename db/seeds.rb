@@ -50,7 +50,8 @@ Itinerary.create!(
   start_date: Faker::Date.forward(days: 23),
   end_date: Faker::Date.forward(days: 23),
   description: ["luxury holidays", "amazing experience", "unforgetable weekend", "remarkable trip"].sample,
-  user_id: 1
+  user_id: 1,
+  location: "Athens, Greece"
 )
 
 Itinerary.create!(
@@ -58,21 +59,24 @@ Itinerary.create!(
   start_date: Faker::Date.forward(days: 23),
   end_date: Faker::Date.forward(days: 23),
   description: ["luxury holidays", "amazing experience", "unforgetable weekend", "remarkable trip"].sample,
-  user_id: 2
+  user_id: 2,
+  location: "Moscow, Russia"
 )
 Itinerary.create!(
   name: "Monson Itinerary",
   start_date: Faker::Date.forward(days: 23),
   end_date: Faker::Date.forward(days: 23),
   description: ["luxury holidays", "amazing experience", "unforgetable weekend", "remarkable trip"].sample,
-  user_id: 3
+  user_id: 3,
+  location: "Monson, Massachusetts, USA"
 )
 Itinerary.create!(
   name: "Lisboa Itinerary",
   start_date: Faker::Date.forward(days: 23),
   end_date: Faker::Date.forward(days: 23),
   description: ["luxury holidays", "amazing experience", "unforgetable weekend", "remarkable trip"].sample,
-  user_id: 4
+  user_id: 4,
+  location: "Lisbon, Portugal"
 )
 
 puts "Sample itineraries created!"

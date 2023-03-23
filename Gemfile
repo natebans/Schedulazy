@@ -85,3 +85,4 @@ end
 gem "cloudinary"
 gem "nokogiri"
 gem 'open-uri', '~> 0.3.0'
+gem "geocoder"
