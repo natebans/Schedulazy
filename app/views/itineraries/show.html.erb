@@ -1,5 +1,3 @@
-
-
 <div class="itinerary">
 
     <div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'athens.avif' %>)">
@@ -13,26 +11,38 @@
 
 
     <div class="activities">
-
       <% @itinerary.itinerary_activity_joins.each do |join| %>
-        <div class="card" style="width: 18rem;">
-        <%= image_tag "market.jpeg" %>
+        <div class="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <% @current_activity = join %>
+          <%= image_tag "market.jpeg" %>
           <div class="card-body">
             <h1> <%= join.activity.category %> </h1>
             <p> Address:  <%= join.activity.address %> </p>
             <p> Duration:  <%= join.activity.duration %> min </p>
             <p> From €<%= join.activity.price %> per person </p>
-          <%= link_to "Delete", itinerary_activity_join_path(join), class: "btn btn-outline-danger",
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <%= link_to "Delete", itinerary_activity_join_path(join), class: "btn btn-outline-danger",
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>
         </div>
-    <% end %>
+      <% end %>
+
     </div>
+</div>
+<%#= raise %>
 
-
-
-
-
-
-
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= @current_activity.activity.category %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-flat" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
