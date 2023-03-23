@@ -1,3 +1,7 @@
+<script>
+console.log("estou na pagina new.html.erb")
+</script>
+
 <div class="background">
   <div class="centering-text">
     <% if @no_records %>
@@ -13,6 +17,7 @@
               class: "form-control",
               placeholder: "Where do you want to go?"
             %>
+
           </div>
           <h5>What kind of activities do you want to do? Select all that apply</h5>
           <div class="d-flex flex-wrap justify-content-center">
@@ -36,7 +41,6 @@
   </div>
 </div>
 
-
       <%#= link_to "My Dashboard", itineraries_path, class: "btn btn-primary" %>
 
   <%#= form_with url: test_search_path, method: :get, class: "d-flex" do %>
@@ -47,3 +51,4 @@
 
     <%#= submit_tag "Search", class: "btn btn-flat ms-2" %>
   <%# end %>
+

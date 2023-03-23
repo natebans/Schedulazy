@@ -50,6 +50,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_135020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "location"
+    t.string "Title"
+    t.string "link"
+    t.string "photo"
+    t.string "description"
+    t.string "banner"
   end
 
   create_table "activity_notes", force: :cascade do |t|

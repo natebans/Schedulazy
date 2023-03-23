@@ -3,8 +3,6 @@ class Activity < ApplicationRecord
   has_many :feedback
   has_many :activities_notes
   has_many_attached :photos
-  validates :address, presence: true
-  validates :category, presence: true
-  validates :price, presence: true
-  validates :location, presence: true
+  validates :Title, presence: true
+  validates :link, presence: true
 end

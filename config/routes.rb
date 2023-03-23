@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/about", to: "pages#about"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  get '/home/test_search', to: 'pages#test_search', as: 'test_search'
   # Defines the root path route ("/")
   # root "articles#index"
   resources :itineraries, only: [:index, :new, :create, :show, :destroy] do
