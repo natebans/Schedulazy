@@ -90,7 +90,9 @@ puts "Creating sample activities"
     category: ["museum", "shopping", "tour", "church", "local market"].sample,
     price: ["10", "20", "30", "45"].sample,
     duration: [30, 60, 90, 120].sample,
-    location: ["Athens", "Moscow", "Monson", "Lisboa"].sample
+    location: ["Athens", "Moscow", "Monson", "Lisboa"].sample,
+    Title: Faker::Kpop.i_groups,
+    link: Faker::Marketing.buzzwords
   )
 end
 
