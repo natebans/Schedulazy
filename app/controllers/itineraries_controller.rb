@@ -2,7 +2,17 @@ class ItinerariesController < ApplicationController
   before_action :set_itinerary, only: [:show, :destroy]
 
   def index
-    @itineraries = policy_scope(Itinerary)
+    @itineraries = policy_scope(current_user.itineraries)
+    # @itineraries = Itinerary.all
+
+    @markers = @itineraries.geocoded.map do |itinerary|
+      {
+        lat: itinerary.latitude,
+        lng: itinerary.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { itinerary: itinerary }),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def new
@@ -15,6 +25,10 @@ class ItinerariesController < ApplicationController
 
   # to be fixed so it can use strong params!!!
   def create
+    # @itinerary = Itinerary.new(itinerary_params)
+    @itinerary = Itinerary.new(name: params[:name])
+    @itinerary.user = current_user
+    @itinerary.location = @itinerary.name
     activity_instances = []
 
     if params[:name].present?
@@ -136,6 +150,6 @@ class ItinerariesController < ApplicationController
   end
 
   def itinerary_params
-    params.require(:itinerary).permit(:name, :start_date, :end_date, :description, photos: [])
+    params.require(:itinerary).permit(:name, :start_date, :end_date, :description, :location, photos: [])
   end
 end

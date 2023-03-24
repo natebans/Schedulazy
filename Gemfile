@@ -85,4 +85,5 @@ gem "webdrivers"
 gem "cloudinary"
 gem "nokogiri"
 gem 'open-uri', '~> 0.3.0'
+gem "geocoder"
 gem 'chromedriver-helper', '~> 1.0'
