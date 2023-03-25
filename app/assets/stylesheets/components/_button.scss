@@ -1,4 +1,4 @@
-.btn-flat {
+.custom-button.btn-flat {
   text-decoration: none;
   color: $white;
   padding: 8px 24px;
@@ -8,14 +8,22 @@
   opacity: 1;
 }
 
-.btn-flat:hover {
+
+.custom-button.btn-flat:active {
+  opacity: 1;
+  color: $white;
+  background: $yellow;
+}
+
+
+.custom-button.btn-flat:hover {
   transition: opacity 0.3s ease;
   opacity: 0.7;
   background: $yellow;
   color: $white;
 }
 
-.btn-delete {
+.custom-button.btn-delete {
   background: #CC6666;
   color: $white;
   padding: 8px 24px;
@@ -27,9 +35,15 @@
   // }
 }
 
-.btn-delete:hover {
+.custom-button.btn-delete:hover {
   transition: opacity 0.3s ease;
   opacity: 0.7;
   background: #CC6666;
   color: $white;
+}
+
+.custom-button.btn-delete:active {
+  opacity: 1;
+  color: $white;
+  background: #CC6666;
 }

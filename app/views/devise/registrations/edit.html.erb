@@ -26,7 +26,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Update", class: "btn btn-flat" %>
+      <%= f.button :submit, "Update", class: "btn btn-flat custom-button" %>
     </div>
   <% end %>
 </div>
@@ -35,9 +35,9 @@
   <h3>Cancel my account</h3>
   <p> Unhappy? </p>
   <div>
-     <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn-delete btn btn-flat" %>
+     <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn-delete btn btn-flat custom-button" %>
   </div>
   <p>
-  <%= button_to "Back", :back, class: "btn btn-flat ms-2"%>
+  <%= button_to "Back", :back, class: "btn btn-flat custom-button ms-2"%>
   </p>
 </div>

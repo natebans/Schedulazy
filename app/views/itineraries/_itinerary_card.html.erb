@@ -9,7 +9,7 @@
           <p> <strong> End Date: </strong>   <%= itinerary.end_date %> </p>
         </div>
         <div>
-          <%= link_to "Delete", itinerary_path(itinerary), class: "btn btn-delete",
+          <%= link_to "Delete", itinerary_path(itinerary), class: "btn btn-delete custom-button",
             data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
           %>
         </div>

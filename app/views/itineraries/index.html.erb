@@ -5,7 +5,7 @@
 
 <div class="container pt-5">
   <div class="mb-3">
-  <%= link_to "Create a new itinerary", new_itinerary_path, class: "btn btn-flat"%>
+  <%= link_to "Create a new itinerary", new_itinerary_path, class: "btn btn-flat custom-button"%>
   </div>
     <% current_user.itineraries.each do |itinerary|  %>
       <%= render "itinerary_card", itinerary: itinerary %>
