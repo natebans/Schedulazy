@@ -1,23 +1,16 @@
-<script>
-console.log("estou na pagina new.html.erb")
-</script>
-
 <div class="background">
   <div class="centering-text">
-    <% if @no_records %>
-      <%= @no_records %>
-    <% end %>
     <div class="transition-fade" data-controller="swup" id="swup">
       <h2>Give us some info and we will give you a customized trip</h2>
       <div class="container mt-3">
         <h5>Destination</h5>
-        <%= form_with url: itineraries_path, method: :post, class: "d-flex flex-column" do |f| %>
+        <%= form_with url:itineraries_path, method: :post, class: "d-flex flex-column" do |f| %>
           <div class="mb-5">
-            <%= f.text_field :name,
-              class: "form-control",
-              placeholder: "Where do you want to go?"
+          <%= text_field_tag :search,
+            params[:search],
+            class: "form-control",
+            placeholder: "Search for a itinerary"
             %>
-
           </div>
           <h5>What kind of activities do you want to do? Select all that apply</h5>
           <div class="d-flex flex-wrap justify-content-center">
@@ -32,16 +25,21 @@ console.log("estou na pagina new.html.erb")
               </div>
              <% end %>
            </div>
-          <div class="container mt-5">
+          <div class="container mt-5 mb-5">
             <%= submit_tag "Search", class: "btn btn-flat custom-button ms-2" %>
           </div>
+
+          <% if @no_records %>
+            <%= @no_records %>
+          <% end %>
+
         <% end %>
       </div>
     </div>
   </div>
 </div>
 
-      <%#= link_to "My Dashboard", itineraries_path, class: "btn btn-primary" %>
+  <%#= link_to "My Dashboard", itineraries_path, class: "btn btn-primary" %>
 
   <%#= form_with url: test_search_path, method: :get, class: "d-flex" do %>
     <%#= text_field_tag :search,
