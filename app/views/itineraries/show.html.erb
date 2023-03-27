@@ -1,7 +1,8 @@
 <div class="itinerary">
   <div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0,0,0,0.4)), url()">
     <div class="container">
-        <h1>Enjoy amazing holidays <%= @itinerary.itinerary_activity_joins.last.activity.location %> </h1>
+    <% if !@itinerary.itinerary_activity_joins.empty? %>
+        <h1>Enjoy amazing holidays in <%= @itinerary.itinerary_activity_joins.first.activity.location %></h1>
         <p>A new amazing adventure is waiting for you</p>
     </div>
   </div>
@@ -12,9 +13,9 @@
       <div class="card-body">
         <p style="text-decoration: underline"><strong><%= join.activity.category %></strong></p>
         <p> <%= join.activity.Title %> </p>
-        <p> From <%= join.activity.price.to_i %>€ per person </p>
-        <%= link_to "Delete", join, class: "btn btn-outline-danger",
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <p> From <%= join.activity.location %>€ per person </p>
+        <%= link_to "Delete", join,
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger" %>
 
         <div class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= join.id %>">
           See more
@@ -22,7 +23,7 @@
 
       </div>
 
-    </div>
+  </div>
     <div class="modal fade" id="exampleModal<%= join.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -46,5 +47,6 @@
         </div>
       </div>
     </div>
+  <% end %>
   <% end %>
 </div>

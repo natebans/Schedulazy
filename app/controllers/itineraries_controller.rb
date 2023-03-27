@@ -30,12 +30,22 @@ class ItinerariesController < ApplicationController
     # @itinerary = Itinerary.new(itinerary_params)
     @itinerary = Itinerary.new(name: params[:search], user: current_user)
     authorize @itinerary
-    
-    if !params[:search].present? && !params[:category].nil?
-      @activities = Activity.where("location ILIKE ?", "%#{params[:search]}%").where(category: params[:category])
-    elsif !params[:search].present? && params[:category].nil?
-      @activities = Activity.where("location ILIKE ?", "%#{params[:search]}%")
-    elsif !params[:category].nil? && params[:search].present?
+
+    @activities = []
+
+
+    # if(params[:search].present? && params[:category].present?)
+    #  @activities = Activity.where(location: params[:search], category: params[:category])
+    # else
+    #   @activities = Activity.where(location: params[:search])
+    # end
+
+
+    if !params[:search].empty? && !params[:category].nil?
+      @activities = Activity.where(location: params[:search].capitalize).where(category: params[:category])
+    elsif !params[:search].empty? && params[:category].nil?
+      @activities = Activity.where(location: params[:search].capitalize)
+    elsif !params[:category].nil? && params[:search].empty?
       @activities = Activity.where(category: params[:category])
     end
 
@@ -43,10 +53,10 @@ class ItinerariesController < ApplicationController
       session[:no_records] = "Destination not available. Please input a different destination."
       return redirect_to new_itinerary_path
     end
-    if @itinerary.save!
+    if @itinerary.save
       @activities.each { |activity| ItineraryActivityJoin.create!(itinerary: @itinerary, activity: activity) }
       # ItineraryActivityJoin.create!(itinerary: @itinerary, activity: @activity)
-      redirect_to itinerary_path(@itinerary)
+      return redirect_to itinerary_path(@itinerary)
     else
       render :new, status: :unprocessable_entity
     end
