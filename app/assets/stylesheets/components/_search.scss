@@ -1,6 +1,19 @@
-.form-control {
+.form-control-destination {
   border-radius: 30px;
   height: 35px;
   width: 400px;
-  margin-left: 215px;
+  margin: 10px auto;
+  border: none;
+  background: #fff;
+  padding-top: 5px;
+}
+
+.cursor {
+  text-align: center;
+}
+
+
+.search-input {
+  border: none;
+  outline: none;
 }

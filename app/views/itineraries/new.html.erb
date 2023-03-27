@@ -12,12 +12,12 @@ console.log("estou na pagina new.html.erb")
       <div class="container mt-3">
         <h5>Destination</h5>
         <%= form_with url: itineraries_path, method: :post, class: "d-flex flex-column" do |f| %>
-          <div class="mb-5">
+          <div class="mb-5 form-control-destination cursor">
             <%= f.text_field :name,
-              class: "form-control",
+              class: "search-input",
               placeholder: "Where do you want to go?"
             %>
-
+            <i class="fa-solid fa-magnifying-glass text-dark"></i>
           </div>
           <h5>What kind of activities do you want to do? Select all that apply</h5>
           <div class="d-flex flex-wrap justify-content-center">
