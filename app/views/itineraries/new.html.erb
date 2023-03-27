@@ -11,13 +11,22 @@ console.log("estou na pagina new.html.erb")
       <h2>Give us some info and we will give you a customized trip</h2>
       <div class="container mt-3">
         <h5>Destination</h5>
-        <%= form_with url: itineraries_path, method: :post, class: "d-flex flex-column" do |f| %>
+        <%= form_with url: itineraries_path, method: :post, class: "d-flex flex-column", data: { controller: "flatpickr" } do |f| %>
           <div class="mb-5">
             <%= f.text_field :name,
               class: "form-control",
               placeholder: "Where do you want to go?"
             %>
-
+              <div class="mb-5">
+                </div>
+                 <%= f.simple_fields_for :itinerary, data: { controller: "flatpickr" } do |a| %>
+              <div class="mb-5">
+                <%= a.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } }, class: "form-control flatpickr-input" %>
+              </div>
+              <div class="mb-5">
+                <%= a.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } }, class: "form-control flatpickr-input" %>
+              </div>
+            <% end %>
           </div>
           <h5>What kind of activities do you want to do? Select all that apply</h5>
           <div class="d-flex flex-wrap justify-content-center">
