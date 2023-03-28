@@ -16,4 +16,18 @@
 .search-input {
   border: none;
   outline: none;
+  width: 300px;
+  text-align: center;
+
+}
+
+
+.form-control  {
+  border-radius: 30px;
+  height: 35px;
+  width: 400px;
+  margin: 10px auto;
+  border: none;
+  background: #fff;
+  padding-top: 5px;
 }
