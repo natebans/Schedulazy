@@ -28,24 +28,24 @@ class ItinerariesController < ApplicationController
     # @itineraries = Itinerary.all
 
     # @itinerary = Itinerary.new(itinerary_params)
-    @itinerary = Itinerary.new(name: params[:search], user: current_user)
+    @itinerary = Itinerary.new(name: params[:name], user: current_user)
     authorize @itinerary
 
     @activities = []
 
 
-    # if(params[:search].present? && params[:category].present?)
-    #  @activities = Activity.where(location: params[:search], category: params[:category])
+    # if(params[:name].present? && params[:category].present?)
+    #  @activities = Activity.where(location: params[:name], category: params[:category])
     # else
-    #   @activities = Activity.where(location: params[:search])
+    #   @activities = Activity.where(location: params[:name])
     # end
 
 
-    if !params[:search].empty? && !params[:category].nil?
-      @activities = Activity.where(location: params[:search].capitalize).where(category: params[:category])
-    elsif !params[:search].empty? && params[:category].nil?
-      @activities = Activity.where(location: params[:search].capitalize)
-    elsif !params[:category].nil? && params[:search].empty?
+    if !params[:name].empty? && !params[:category].nil?
+      @activities = Activity.where(location: params[:name].capitalize).where(category: params[:category])
+    elsif !params[:name].empty? && params[:category].nil?
+      @activities = Activity.where(location: params[:name].capitalize)
+    elsif !params[:category].nil? && params[:name].empty?
       @activities = Activity.where(category: params[:category])
     end
 
