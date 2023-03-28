@@ -1,4 +1,8 @@
 class ItineraryActivityJoinsController < ApplicationController
+  def show
+    @itinerary_activity_joins = ItineraryActivityJoin.find(params[:id])
+    authorize @itinerary_activity_joins
+  end
   def destroy
     @itinerary_activity_joins = ItineraryActivityJoin.find(params[:id])
     authorize @itinerary_activity_joins
