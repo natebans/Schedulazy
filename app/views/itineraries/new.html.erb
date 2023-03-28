@@ -13,14 +13,7 @@
             <i class="fa-solid fa-magnifying-glass text-dark"></i>
               <div class="mb-5">
                 </div>
-                 <%= f.simple_fields_for :itinerary, data: { controller: "flatpickr" } do |a| %>
-              <div class="mb-5">
-                <%= a.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } }, class: "form-control flatpickr-input" %>
-              </div>
-              <div class="mb-5">
-                <%= a.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } }, class: "form-control flatpickr-input" %>
-              </div>
-            <% end %>
+
           </div>
           <h5>What kind of activities do you want to do? Select all that apply</h5>
           <div class="d-flex flex-wrap justify-content-center">
@@ -33,9 +26,17 @@
                 <%= b.check_box %>
                 <%= b.label %>
               </div>
-             <% end %>
-           </div>
-          <div class="container mt-5 mb-5">
+            <% end %>
+          </div>
+          <%= f.simple_fields_for :itinerary, data: { controller: "flatpickr" } do |a| %>
+            <div class="mb-5">
+              <%= a.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } }, class: "form-control flatpickr-input" %>
+            </div>
+            <div class="mb-5">
+              <%= a.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } }, class: "form-control flatpickr-input" %>
+            </div>
+          <% end %>
+          <div class="container mt-5">
             <%= submit_tag "Search", class: "btn btn-flat custom-button ms-2" %>
           </div>
 
