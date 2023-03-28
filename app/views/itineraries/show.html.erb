@@ -13,14 +13,12 @@
       <div class="card-body">
         <p style="text-decoration: underline"><strong><%= join.activity.category %></strong></p>
         <p> <%= join.activity.Title %> </p>
-        <p> From <%= join.activity.location %>€ per person </p>
+        <p> From <%= join.activity.price.to_i %>€ per person </p>
         <%= link_to "Delete", join,
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger" %>
-
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-delete custom-button" %>
         <div class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= join.id %>">
           See more
         </div>
-
       </div>
 
   </div>
@@ -40,9 +38,6 @@
             <p><strong>Duration:</strong> <%= join.activity.duration %> minutes </p>
             <p><strong>From</strong> €<%= join.activity.price.to_i %> per person </p>
             <p> Link: <%= join.activity.link %> </p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-flat custom-button" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
