@@ -1,22 +1,27 @@
 <div class="itinerary">
-  <div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0,0,0,0.4)), url(<%= @itinerary.itinerary_activity_joins.last.activity.banner %>)">
+  <div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0,0,0,0.4)), url()">
     <div class="container">
-        <p><%= @itinerary.itinerary_activity_joins.last.activity.address %></p>
-        <a class="btn btn-flat" href="#">Apply now</a>
+    <% if !@itinerary.itinerary_activity_joins.empty? %>
+        <h1>Enjoy amazing holidays in <%= @itinerary.itinerary_activity_joins.first.activity.location %></h1>
+        <p>A new amazing adventure is waiting for you</p>
     </div>
-    </div>
+  </div>
 <div class="activities">
   <% @itinerary.itinerary_activity_joins.each do |join| %>
-    <div class="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#exampleModal<%= join.id %>">
+    <div class="card" style="width: 18rem;">
       <%#= image_tag join.activity.photo %>
       <div class="card-body">
         <p style="text-decoration: underline"><strong><%= join.activity.category %></strong></p>
         <p> <%= join.activity.Title %> </p>
         <p> From <%= join.activity.price.to_i %>€ per person </p>
-        <%= link_to "Delete", itinerary_activity_join_path(join), class: "btn btn-delete custom-button",
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <%= link_to "Delete", join,
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-delete custom-button" %>
+        <div class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= join.id %>">
+          See more
+        </div>
       </div>
-    </div>
+
+  </div>
     <div class="modal fade" id="exampleModal<%= join.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -38,3 +43,5 @@
       </div>
     </div>
   <% end %>
+  <% end %>
+</div>

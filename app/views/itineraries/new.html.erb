@@ -1,12 +1,5 @@
-<script>
-console.log("estou na pagina new.html.erb")
-</script>
-
 <div class="background">
   <div class="centering-text">
-    <% if @no_records %>
-      <%= @no_records %>
-    <% end %>
     <div class="transition-fade" data-controller="swup" id="swup">
       <h2>Give us some info and we will give you a customized trip</h2>
       <div class="container mt-3">
@@ -42,16 +35,21 @@ console.log("estou na pagina new.html.erb")
               </div>
              <% end %>
            </div>
-          <div class="container mt-5">
+          <div class="container mt-5 mb-5">
             <%= submit_tag "Search", class: "btn btn-flat custom-button ms-2" %>
           </div>
+
+          <% if @no_records %>
+            <%= @no_records %>
+          <% end %>
+
         <% end %>
       </div>
     </div>
   </div>
 </div>
 
-      <%#= link_to "My Dashboard", itineraries_path, class: "btn btn-primary" %>
+  <%#= link_to "My Dashboard", itineraries_path, class: "btn btn-primary" %>
 
   <%#= form_with url: test_search_path, method: :get, class: "d-flex" do %>
     <%#= text_field_tag :search,
