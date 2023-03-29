@@ -7,12 +7,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :itineraries, only: [:index, :new, :create, :show, :destroy] do
     resources :activities, only: [:index, :new, :create, :destroy]
-    resources :itinerary_notes, only: [:new, :create]
+    resources :itinerary_notes, only: [:new, :create, :destroy]
   end
   resources :itinerary_activity_joins, only: [:index, :show, :destroy] do
     resources :activity_notes, only: [:new, :create]
   end
-  resources :itinerary_notes, only: [:edit, :update, :destroy]
   resources :activity_notes, only: [:edit, :update, :destroy]
   resources :users, only: [:show, :update, :index]
 end

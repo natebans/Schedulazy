@@ -6,7 +6,7 @@
         <p>Start date: <%= @itinerary.start_date %>/End date: <%= @itinerary.end_date %> </p>
     </div>
   </div>
-<div class="activities">
+<div class="activities mb-5">
   <% @itinerary.itinerary_activity_joins.each do |join| %>
     <div class="card" style="width: 18rem;">
       <%#= join.itinerary_activity_joins.activity.photo %>
@@ -20,8 +20,7 @@
           See more
         </div>
       </div>
-
-  </div>
+    </div>
     <div class="modal fade" id="exampleModal<%= join.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -44,5 +43,23 @@
       </div>
     </div>
   <% end %>
+  <% end %>
+
+</div>
+<div class="mt-5 px-5 pt-5 border-top w-100">
+<h2 class="mb-2">Notes to self:</h2>
+<ul class="mb-4">
+  <%  @itinerary.itinerary_notes.each do |note|  %>
+    <li>
+      <%= note.description %>
+      <%= link_to itinerary_itinerary_note_path(@itinerary, note), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+  <%= simple_form_for [@itinerary, @itinerary_note] do |form| %>
+    <%= form.input :description, label: false, placeholder: "Add a note about this itinerary"%>
+    <%= form.submit "Save", class: "btn btn-primary mt-2" %>
   <% end %>
 </div>

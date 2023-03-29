@@ -16,6 +16,7 @@ class ItinerariesController < ApplicationController
   end
 
   def new
+
     @itinerary = Itinerary.new
     authorize @itinerary
     @no_records = session[:no_records]
@@ -39,6 +40,7 @@ class ItinerariesController < ApplicationController
     # else
     #   @activities = Activity.where(location: params[:name])
     # end
+    @itinerary.location = params[:name]
 
     if !params[:name].empty? && !params[:category].nil?
       # got this one to work without inputting categories @activities = Activity.where(location: params[:name].capitalize).where(category: params[:category])
@@ -65,6 +67,8 @@ class ItinerariesController < ApplicationController
 
   def show
     authorize @itinerary
+    @itinerary_note = ItineraryNote.new(itinerary:@itinerary, user:current_user)
+
   end
 
   def destroy
