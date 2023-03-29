@@ -93,7 +93,7 @@ puts "Creating sample activities"
 
 Activity.create!(
   Title: "Brussels Atomium Entry Ticket with Free Design Museum Ticket",
-  address: "Pl. de l'Atomium 1, 1020 Bruxelles",
+  address: "Pl. de l'Atomium 1, 1020 Brussels",
   category: "Entry Ticket",
   price: 16,
   duration: 3,
@@ -105,7 +105,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "From Brussels: Ghent and Bruges Day Tour",
-  address: "Rue du Marché Aux Herbes 61, 1000 Bruxelles",
+  address: "Rue du Marché Aux Herbes 61, 1000 Brussels",
   category: "Day Trip",
   price: 48,
   duration: 10.5,
@@ -117,7 +117,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "Belgian Chocolate Workshop",
-  address: "Rue de Namur 6, 1000 Bruxelles",
+  address: "Rue de Namur 6, 1000 Brussels",
   category: "Workshop or Class",
   price: 45,
   duration: 1.5,
@@ -129,7 +129,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "Guided Walking Tour",
-  address: "Grand-Place de Bruxelles, 1000 Bruxelles",
+  address: "Grand-Place de Bruxelles, 1000 Brussels",
   category: "Guided Tour",
   price: 20,
   duration: 2.5,
@@ -141,7 +141,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "Hop-On Hop-Off Bus Tour",
-  address: "54 Boulevard de l'Impératrice, 1000 Bruxelles",
+  address: "54 Boulevard de l'Impératrice, 1000 Brussels",
   category: "Hop-on hop-off tour",
   price: 27.90,
   duration: 1,
@@ -153,7 +153,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "Belgian Beer Tasting Experience",
-  address: "Rue Montagne aux Herbes Potagères 2, 1000 Bruxelles",
+  address: "Rue Montagne aux Herbes Potagères 2, 1000 Brussels",
   category: "Guided Tour",
   price: 35,
   duration: 2.5,
@@ -165,7 +165,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "Chocolate Museum Visit with Workshop",
-  address: "Rue de l'Etuve 41, 1000 Bruxelles",
+  address: "Rue de l'Etuve 41, 1000 Brussels",
   category: "Entry Ticket",
   price: 35,
   duration: 2.5,
@@ -177,7 +177,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "Waffle Making Workshop",
-  address: "Rue des Foulons 30, 1000 Bruxelles",
+  address: "Rue des Foulons 30, 1000 Brussels",
   category: "Workshop or Class",
   price: 32,
   duration: 1.5,
@@ -297,7 +297,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "Pena Palace, Sintra, Cabo da Roca, & Cascais Daytrip",
-  address: "Campo dos Mártires da Pátria 122, 1150-343 Lisboa, Portugal",
+  address: "Campo dos Mártires da Pátria 122, 1150-343 Lisbon, Portugal",
   category: "Day Trip",
   price: 350,
   duration: 8,
@@ -310,7 +310,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "Boat Cruise with Live Fado Performance and a Drink",
-  address: "Cais do Sodré 4, 1200-161 Lisboa, Portugal",
+  address: "Cais do Sodré 4, 1200-161 Lisbon, Portugal",
   category: "Water Activity",
   price: 40,
   duration: 1,
@@ -323,7 +323,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "Sunset Tour with Music and a Drink",
-  address: "Cais da Ribeira das Naus, 1200-450 Lisboa, Portugal",
+  address: "Cais da Ribeira das Naus, 1200-450 Lisbon, Portugal",
   category: "Water Activity",
   price: 40,
   duration: 1.5,
@@ -336,7 +336,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "History, Stories and Lifestyle Walking Tour",
-  address: "R. Garrett 122, 1200-273 Lisboa, Portugal",
+  address: "R. Garrett 122, 1200-273 Lisbon, Portugal",
   category: "Guided Tour",
   price: 25,
   duration: 3,
@@ -375,7 +375,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "Tagus River Cruise with Traditional Muscatel Wine",
-  address: "Sueste, Estação Fluvial Sul e, Av. Infante Dom Henrique 1B, 1100-016 Lisboa, Portugal",
+  address: "Sueste, Estação Fluvial Sul e, Av. Infante Dom Henrique 1B, 1100-016 Lisbon, Portugal",
   category: "Water Activity",
   price: 17,
   duration: 1.5,
@@ -388,7 +388,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "Hills Tour by Electric Bike",
-  address: "R. dos Douradores 21, 1100-203 Lisboa, Portugal",
+  address: "R. dos Douradores 21, 1100-203 Lisbon, Portugal",
   category: "Guided Tour",
   price: 34,
   duration: 2.5,
@@ -458,7 +458,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "Scenic Lake Cruise with Snacks and Wine",
-  address: "Quai Gustave-Ador 35-33, 1207 Genève, Switzerland",
+  address: "Quai Gustave-Ador 35-33, 1207 Geneva, Switzerland",
   category: "Water Activity",
   price: 28.07,
   duration: 1,
@@ -471,7 +471,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "Tour of International Quarters and Old Town",
-  address: "Pl. Dorcière 5, 1201 Genève, Switzerland",
+  address: "Pl. Dorcière 5, 1201 Geneva, Switzerland",
   category: "Guided Tour",
   price: 58.14,
   duration: 2,
@@ -484,7 +484,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "Open-Top Sightseeing Bus Tour",
-  address: "Pl. Dorcière 5, 1201 Genève, Switzerland",
+  address: "Pl. Dorcière 5, 1201 Geneva, Switzerland",
   category: "Guided Tour",
   price: 25.06,
   duration: 1.25,
@@ -497,7 +497,7 @@ Activity.create!(
 
 Activity.create!(
   Title: "Hop-on Hop-off Sightseeing Tour",
-  address: "Pl. Dorcière 5, 1201 Genève, Switzerland",
+  address: "Pl. Dorcière 5, 1201 Geneva, Switzerland",
   category: "Hop-on hop-off tour",
   price: 32.08,
   duration: 1,
