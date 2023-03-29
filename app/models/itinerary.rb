@@ -3,7 +3,7 @@ class Itinerary < ApplicationRecord
   belongs_to :user
   has_many :itinerary_activity_joins, dependent: :destroy
   has_many :activities, through: :itinerary_activity_joins
-  has_many :itinerary_notes
+  has_many :itinerary_notes, dependent: :destroy
   has_many_attached :photos
   pg_search_scope :search_name, against: [:name, :description, :location],
   using: {

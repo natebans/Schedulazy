@@ -64,6 +64,8 @@ class ItinerariesController < ApplicationController
 
   def show
     authorize @itinerary
+    @itinerary_note = ItineraryNote.new(itinerary:@itinerary, user:current_user)
+
   end
 
   def destroy
