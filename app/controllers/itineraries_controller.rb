@@ -16,6 +16,7 @@ class ItinerariesController < ApplicationController
   end
 
   def new
+
     @itinerary = Itinerary.new
     authorize @itinerary
     @no_records = session[:no_records]
@@ -39,7 +40,7 @@ class ItinerariesController < ApplicationController
     # else
     #   @activities = Activity.where(location: params[:name])
     # end
-
+    @itinerary.location = params[:name]
 
     if !params[:name].empty? && !params[:category].nil?
       @activities = Activity.where(location: params[:name].capitalize).where(category: params[:category])
