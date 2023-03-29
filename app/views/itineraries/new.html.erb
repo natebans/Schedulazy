@@ -28,13 +28,16 @@
             <% end %>
           </div>
           <%= f.simple_fields_for :itinerary, data: { controller: "flatpickr" } do |a| %>
-            <div class="mb-3">
-              <%= a.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } }, class: "form-control flatpickr-input"%>
-               <%# <i class="fa-solid fa-calendar text-dark"></i> %>
+             <div class="mb-3  cursor flatpickr-input calendar-form">
+
+                 <%= a.input :start_time, as: :string, label:"Choose a start date", label_html: { style: "font-weight: bold;" } , input_html: { data: { flatpickr_target: "startTime" } }, class: " search-input"%>
+                 <i class="fa-solid fa-calendar text-dark calendar"></i>
+
             </div>
-            <div class="mb-3 cursor">
-              <%= a.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } }, class: "form-control flatpickr-input" %>
-               <%# <i class="fa-solid fa-calendar text-dark"></i> %>
+
+            <div class="mb-3 cursor flatpickr-input calendar-form">
+              <%= a.input :end_time, as: :string, label:"Choose an end date", label_html: { style: "font-weight: bold;" }, input_html: { data: { flatpickr_target: "endTime" } }, class: "search-input" %>
+                <i class="fa-solid fa-calendar text-dark calendar"></i>
             </div>
           <% end %>
           <div class="container mt-3">
