@@ -35,9 +35,10 @@
             </div>
             <p style="text-decoration: underline"><%= join.activity.category %></p>
             <p><strong>Address:</strong> <%= join.activity.address %> </p>
-            <p><strong>Duration:</strong> <%= join.activity.duration %> minutes </p>
-            <p><strong>From</strong> €<%= join.activity.price.to_i %> per person </p>
-            <p> Link: <%= join.activity.link %> </p>
+            <p><strong>Duration:</strong> <%= join.activity.duration %> minutes</p>
+            <p><strong>From</strong> €<%= join.activity.price.to_i %> per person</p>
+            <p><%= join.activity.description %></p>
+            <p>Link: <%= join.activity.link %></p>
           </div>
         </div>
       </div>
