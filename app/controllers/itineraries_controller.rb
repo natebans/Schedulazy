@@ -28,8 +28,11 @@ class ItinerariesController < ApplicationController
   def create
     # @itineraries = Itinerary.all
 
-    # @itinerary = Itinerary.new(itinerary_params)
-    @itinerary = Itinerary.new(name: params[:name], user: current_user)
+    @itinerary = Itinerary.new(itinerary_params)
+
+    # @itinerary = Itinerary.new(name: params[:name], user: current_user)
+    @itinerary.user = current_user
+    @itinerary.name = params[:name]
     authorize @itinerary
 
     @activities = []
@@ -66,7 +69,6 @@ class ItinerariesController < ApplicationController
   def show
     authorize @itinerary
     @itinerary_note = ItineraryNote.new(itinerary:@itinerary, user:current_user)
-
   end
 
   def destroy
