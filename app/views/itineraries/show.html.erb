@@ -1,69 +1,89 @@
 <div class="itinerary">
-  <div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0,0,0,0.4)), url('<%= @itinerary.itinerary_activity_joins.first.activity.banner %>')">
-    <div class="container">
-      <% if !@itinerary.itinerary_activity_joins.empty? %>
-        <h1> My itinerary in <%= @itinerary.itinerary_activity_joins.first.activity.location %></h1>
-        <p>Start date: <%= @itinerary.start_date.strftime("%d-%m-%Y") %></p>
-          <p>End date: <%= @itinerary.end_date.strftime("%d-%m-%Y") %> </p>
-    </div>
+  <div class="banner" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('<%= @itinerary.itinerary_activity_joins.first.activity.banner %>');">
+    <h1>
+      My itinerary in <%= @itinerary.itinerary_activity_joins.first.activity.location %>
+    </h1>
+    <p>Start date: <%= @itinerary.start_date&.strftime("%d-%m-%Y") %></p>
+    <p>End date: <%= @itinerary.end_date&.strftime("%d-%m-%Y") %></p>
   </div>
-  <div class="activities mb-5">
-    <% @itinerary.itinerary_activity_joins.each do |join| %>
-      <div class="card" style="width: 18rem;">
-        <%= image_tag join.activity.photo %>
-        <div class="card-body">
-          <p style="text-decoration: underline"><strong><%= join.activity.category %></strong></p>
-          <p> <%= join.activity.Title %> </p>
-          <p> From <%= join.activity.price.to_i %>€ per person </p>
-          <div class= "d-flex justify-content-between">
-            <div class="btn btn-flat custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= join.id %>">
-              <i class="fa fa-info" aria-hidden="true"></i>
-            </div>
-            <%= link_to join, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-delete custom-button" do %>
-              <i class="fa fa-trash-o"></i>
-          <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="modal fade" id="exampleModal<%= join.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"><strong><%= join.activity.Title %></strong></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="picture">
-                <%= image_tag join.activity.photo %>
+  <div class="container">
+    <% if !@itinerary.itinerary_activity_joins.empty? %>
+      <div class="activities mb-5">
+        <% @itinerary.itinerary_activity_joins.each do |join| %>
+          <div class="card" style="width: 18rem">
+            <%= image_tag join.activity.photo %>
+            <div class="card-body">
+              <p style="text-decoration: underline">
+                <strong><%= join.activity.category %></strong>
+              </p>
+              <p><%= join.activity.Title %></p>
+              <p>From <%= join.activity.price.to_i %>€ per person</p>
+              <div class="d-flex justify-content-between">
+                <div class="btn btn-flat custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= join.id %>">
+                  <i class="fa fa-info" aria-hidden="true"></i>
+                </div>
+                <%= link_to join, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-delete custom-button" do %>
+                  <i class="fa fa-trash-o"></i>
+                <% end %>
               </div>
-              <p style="text-decoration: underline"><%= join.activity.category %></p>
-              <p><%= join.activity.description %></p>
-              <p><strong>Address:</strong> <%= join.activity.address %> </p>
-              <p><strong>Duration:</strong> <%= join.activity.duration %> hour(s)</p>
-              <p><strong>From</strong> €<%= join.activity.price.to_i %> per person</p>
-              <p>Want more info or to book this? <%= link_to "Check it out here!", join.activity.link, target: "_blank" %></p>
             </div>
           </div>
-        </div>
-      </div>
-      <% end %>
-    <% end %>
-
-  </div>
-  <div class="mt-5 px-5 pt-5 border-top w-100">
-  <h2 class="mb-2">Notes to self:</h2>
-  <ul class="mb-4">
-    <%  @itinerary.itinerary_notes.each do |note|  %>
-      <li>
-        <%= note.description %>
-        <%= link_to itinerary_itinerary_note_path(@itinerary, note), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-          <i class="fa fa-trash-o"></i>
+          <div class="modal fade" id="exampleModal<%= join.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    <strong><%= join.activity.Title %></strong>
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div class="picture"><%= image_tag join.activity.photo %></div>
+                  <p style="text-decoration: underline">
+                    <%= join.activity.category %>
+                  </p>
+                  <p><%= join.activity.description %></p>
+                  <p><strong>Address:</strong> <%= join.activity.address %></p>
+                  <p>
+                    <strong>Duration:</strong> <%= join.activity.duration %>
+                    hour(s)
+                  </p>
+                  <p>
+                    <strong>From</strong> €<%= join.activity.price.to_i %> per
+                    person
+                  </p>
+                  <p>
+                    Want more info or to book this? <%= link_to "Check it out
+                    here!", join.activity.link, target: "_blank" %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         <% end %>
-      </li>
-    <% end %>
-  </ul>
-    <%= simple_form_for [@itinerary, @itinerary_note] do |form| %>
-      <%= form.input :description, label: false, placeholder: "Add a note about this itinerary"%>
-      <%= form.submit "Save", class: "btn btn-primary mt-2" %>
+      </div>
     <% end %>
   </div>
+  <div class="my-5 px-5 pt-5 border-top w-100">
+    <h2 class="mb-2">Notes to self:</h2>
+    <ul class="mb-4">
+      <% @itinerary.itinerary_notes.each do |note| %>
+        <li>
+          <%= note.description %>
+          <%= link_to itinerary_itinerary_note_path(@itinerary, note), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <i class="fa fa-trash-o"></i>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <%= simple_form_for [@itinerary, @itinerary_note] do |form| %>
+      <%= form.input :description, label: false, placeholder: "Add a note about this itinerary", class: "search-input"%>
+      <%= form.submit "Save", class: "btn btn-primary mt-2" %>
+    <% end%>
+  </div>
+</div>

@@ -5,8 +5,8 @@
       <div class="card-body-itinerary d-flex justify-content-between shadow-lg p-3 mb-5 bg-white rounded" style="background-image:url(<%= asset_path 'ticket.jpg' %>);">
         <div class= "info" >
           <h5> <%= itinerary.name %> </h5>
-          <p> <strong> Start Date: </strong>  <%= itinerary.start_date.strftime("%d-%m-%Y") %> </p>
-          <p> <strong> End Date: </strong>   <%= itinerary.end_date.strftime("%d-%m-%Y") %> </p>
+          <p> <strong> Start Date: </strong>  <%= itinerary.start_date&.strftime("%d-%m-%Y") %> </p>
+          <p> <strong> End Date: </strong>   <%= itinerary.end_date&.strftime("%d-%m-%Y") %> </p>
         </div>
         <div>
           <%= link_to itinerary_path(itinerary), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-delete custom-button" do %>
