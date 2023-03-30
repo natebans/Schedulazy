@@ -9,7 +9,7 @@
 <div class="activities mb-5">
   <% @itinerary.itinerary_activity_joins.each do |join| %>
     <div class="card" style="width: 18rem;">
-      <%#= join.itinerary_activity_joins.activity.photo %>
+      <%= image_tag join.activity.photo %>
       <div class="card-body">
         <p style="text-decoration: underline"><strong><%= join.activity.category %></strong></p>
         <p> <%= join.activity.Title %> </p>
@@ -30,7 +30,7 @@
           </div>
           <div class="modal-body">
             <div class="picture">
-              <%#= join.itinerary_activity_joins.activity.photo %>
+              <%= image_tag join.activity.photo %>
             </div>
             <p style="text-decoration: underline"><%= join.activity.category %></p>
             <p><%= join.activity.description %></p>
