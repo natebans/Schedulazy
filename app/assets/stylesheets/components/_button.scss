@@ -3,7 +3,7 @@
   color: $white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: $yellow;
+  background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
   border: 2px solid transparent;
   opacity: 1;
 }
@@ -19,7 +19,7 @@
 .custom-button.btn-flat:hover {
   transition: opacity 0.3s ease;
   opacity: 0.7;
-  background: $yellow;
+  background-image: linear-gradient(-180deg, #1D95C9 0%, #17759C 100%);
   color: $white;
 }
 

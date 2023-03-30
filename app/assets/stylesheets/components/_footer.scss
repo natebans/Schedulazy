@@ -1,16 +1,20 @@
 footer{
-  margin-top: 200px;
   box-sizing: border-box;
   position: absolute;
-  bottom: 10;
+  // bottom: 10;
   width: 100%;
   background: $blue;
   height: 100px;
-  min-height: 180px;
+  min-height: 248px;
   padding: 20px 50px;
   opacity: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
 }
+
 footer .footer-links{
+  margin-top: 80px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -55,7 +59,6 @@ footer .footer-links a i:hover{
 footer p {
   color: #fff;
   text-align: center;
-  margin: 15px;
   font-size: 1.1em;
 }
 

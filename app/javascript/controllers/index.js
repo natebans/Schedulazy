@@ -7,6 +7,9 @@ import { application } from "./application"
 import AosController from "./aos_controller"
 application.register("aos", AosController)
 
+import ControllerController from "./controller_controller"
+application.register("controller", ControllerController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
@@ -15,6 +18,9 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import ScrollTopController from "./scroll_top_controller"
+application.register("scroll-top", ScrollTopController)
 
 import SwupController from "./swup_controller"
 application.register("swup", SwupController)
