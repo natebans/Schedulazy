@@ -7,6 +7,7 @@
           <p>End date: <%= @itinerary.end_date.strftime("%d-%m-%Y") %> </p>
     </div>
   </div>
+ </div>
 <div class="activities mb-5">
   <% @itinerary.itinerary_activity_joins.each do |join| %>
     <div class="card" style="width: 18rem;">
@@ -15,10 +16,11 @@
         <p style="text-decoration: underline"><strong><%= join.activity.category %></strong></p>
         <p> <%= join.activity.Title %> </p>
         <p> From <%= join.activity.price.to_i %>€ per person </p>
-        <%= link_to "Delete", join,
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-delete custom-button" %>
-        <div class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= join.id %>">
-          See more
+        <div class= "d-flex justify-content-around">
+          <div class="btn btn-flat custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= join.id %>">
+            <i class="fa fa-info" aria-hidden="true"  ></i>
+          </div>
+          <%= link_to "<i class='fa fa-trash' aria-hidden='true'></i>".html_safe, join, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-delete custom-button" %>
         </div>
       </div>
     </div>
