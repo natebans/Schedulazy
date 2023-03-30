@@ -9,9 +9,9 @@
           <p> <strong> End Date: </strong>   <%= itinerary.end_date.strftime("%d-%m-%Y") %> </p>
         </div>
         <div>
-          <%= link_to "Delete", itinerary_path(itinerary), class: "btn btn-delete custom-button",
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-          %>
+          <%= link_to itinerary_path(itinerary), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-delete custom-button" do %>
+            <i class="fa fa-trash-o"></i>
+          <% end %>
         </div>
       </div>
     </div>
