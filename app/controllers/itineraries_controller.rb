@@ -34,18 +34,19 @@ class ItinerariesController < ApplicationController
 
     @activities = []
 
-
     # if(params[:name].present? && params[:category].present?)
-    #  @activities = Activity.where(location: params[:name], category: params[:category])
+    # @activities = Activity.where(location: params[:name].capitalize).where(category: params[:category])
     # else
     #   @activities = Activity.where(location: params[:name])
     # end
     @itinerary.location = params[:name]
 
     if !params[:name].empty? && !params[:category].nil?
-      @activities = Activity.where(location: params[:name].capitalize).where(category: params[:category])
+      @activities = Activity.where("location ILIKE ?", "%#{params[:name]}%").where(category: params[:category])
+      # @activities = Activity.where("location ILIKE '%#{params[:name]}%' AND category ILIKE '%#{params[:category]}%'")
+      # @activities = Activity.where(location: params[:name], category: params[:category])
     elsif !params[:name].empty? && params[:category].nil?
-      @activities = Activity.where(location: params[:name].capitalize)
+      @activities = Activity.where(location: params[:name])
     elsif !params[:category].nil? && params[:name].empty?
       @activities = Activity.where(category: params[:category])
     end

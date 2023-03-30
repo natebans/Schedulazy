@@ -1,7 +1,7 @@
 <div class="itinerary">
-  <div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0,0,0,0.4)), url()">
+  <div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0,0,0,0.4)), url('<%= @itinerary.itinerary_activity_joins.first.activity.banner %>')">
     <div class="container">
-    <% if !@itinerary.itinerary_activity_joins.empty? %>
+      <% if !@itinerary.itinerary_activity_joins.empty? %>
         <h1> My itinerary in <%= @itinerary.itinerary_activity_joins.first.activity.location %></h1>
         <p>Start date: <%= @itinerary.start_date %>/End date: <%= @itinerary.end_date %> </p>
     </div>
@@ -9,7 +9,7 @@
 <div class="activities mb-5">
   <% @itinerary.itinerary_activity_joins.each do |join| %>
     <div class="card" style="width: 18rem;">
-      <%#= image_tag join.activity.photo %>
+      <%= image_tag join.activity.photo %>
       <div class="card-body">
         <p style="text-decoration: underline"><strong><%= join.activity.category %></strong></p>
         <p> <%= join.activity.Title %> </p>
@@ -30,13 +30,14 @@
           </div>
           <div class="modal-body">
             <div class="picture">
-              <%#= image_tag join.activity.photo %>
+              <%= image_tag join.activity.photo %>
             </div>
             <p style="text-decoration: underline"><%= join.activity.category %></p>
+            <p><%= join.activity.description %></p>
             <p><strong>Address:</strong> <%= join.activity.address %> </p>
-            <p><strong>Duration:</strong> <%= join.activity.duration %> minutes </p>
-            <p><strong>From</strong> €<%= join.activity.price.to_i %> per person </p>
-            <p> Link: <%= join.activity.link %> </p>
+            <p><strong>Duration:</strong> <%= join.activity.duration %> hour(s)</p>
+            <p><strong>From</strong> €<%= join.activity.price.to_i %> per person</p>
+            <p>Want more info or to book this? <%= link_to "Check it out here!", join.activity.link, target: "_blank" %></p>
           </div>
         </div>
       </div>

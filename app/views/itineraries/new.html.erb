@@ -17,7 +17,7 @@
           <h5>What kind of activities do you want to do? Select all that apply</h5>
           <div class="mb-3 d-flex flex-wrap justify-content-center">
             <%= f.collection_check_boxes :category,
-              ["museum", "shopping", "tour", "church", "local market"],
+              ["Day Trip", "Entry Ticket", "Guided Tour", "Hop-on hop-off tour", "Water Activity", "Workshop or Class"],
               :to_s,
               :to_s,
               include_hidden: false do |b| %>
