@@ -1,5 +1,5 @@
 <div class="itinerary">
-  <div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0,0,0,0.4)), <%= @itinerary.itinerary_activity_joins.first.activity.banner %>">
+  <div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0,0,0,0.4)), url('<%= @itinerary.itinerary_activity_joins.first.activity.banner %>')">
     <div class="container">
       <% if !@itinerary.itinerary_activity_joins.empty? %>
         <h1> My itinerary in <%= @itinerary.itinerary_activity_joins.first.activity.location %></h1>
