@@ -1,10 +1,12 @@
 <div class="itinerary">
   <div class="banner" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('<%= @itinerary.itinerary_activity_joins.first.activity.banner %>');">
+   <div class="container">
     <h1>
       My itinerary in <%= @itinerary.itinerary_activity_joins.first.activity.location %>
     </h1>
     <p>Start date: <%= @itinerary.start_date&.strftime("%d-%m-%Y") %></p>
     <p>End date: <%= @itinerary.end_date&.strftime("%d-%m-%Y") %></p>
+   </div>
   </div>
   <div class="container">
     <% if !@itinerary.itinerary_activity_joins.empty? %>
